@@ -7,7 +7,7 @@ body {
   font-family: Manrope, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.25rem;
+  font-size: var(--fs);
   color: var(--text-d);
 
   .g {
@@ -61,13 +61,12 @@ main {
   transition: var(--tr);
   border-radius: var(--g20);
   corner-shape: var(--s);
-  font-size: 1.125rem;
   outline: none;
   border: none;
   font-family: Manrope, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.125rem;
+  font-size: var(--fs);
 
   &:hover {
     color: var(--text-d);
@@ -124,7 +123,7 @@ main {
 }
 
 .link {
-  font-size: 1.125rem;
+  font-weight: 500;
 }
 
 
@@ -186,7 +185,7 @@ textarea {
   font-family: Manrope, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.125rem;
+  font-size: var(--fs);
   color: var(--text-g);
   box-shadow: 0 1px 0 0 var(--bor-d);
   transition: var(--tr);
@@ -200,14 +199,17 @@ textarea {
   &:hover {
     box-shadow: 0 1px 0 0 var(--bor-l);
   }
+
+  &:not(:placeholder-shown) {
+    color: var(--text-l);
+  }
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
   overflow: hidden;
-  min-height: 0;
-  height: auto;
   min-height: 1.5rem;
+  height: auto;
 }
 
 .file-upload {
@@ -215,6 +217,11 @@ textarea {
   color: var(--text-g);
   box-shadow: 0 1px 0 0 var(--bor-d);
   transition: var(--tr);
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
 
   &:active,
   &:focus,

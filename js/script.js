@@ -1,14 +1,35 @@
-document.querySelectorAll('.mag').forEach(mag => {
-  const cover = mag.dataset.cover;
-  const title = mag.dataset.title;
-  const href = mag.dataset.href;
-  mag.innerHTML = `
-    <div class="mag-cv">
+document.querySelectorAll('.case').forEach(cas => {
+  const cover = cas.dataset.cover;
+  const title = cas.dataset.title;
+  const description = cas.dataset.description;
+  const name = cas.dataset.name;
+  const categories = cas.dataset.categories ? cas.dataset.categories.split(' ') : [];
+  const href = cas.dataset.href;
+
+  const catsHTML = categories.map(cat => `<div class="cat">${cat.trim()}</div>`).join('');
+
+  cas.innerHTML = `
+    <div class="case-d">
+      <p>${name}</p>
+      <h2>${description}</h2>
+      <div class="cats">
+        ${catsHTML}
+      </div>
+    </div>
+    <div class="case-img">
       <a href="${href}">
-        <div class="mag-img">
-          <img src="${cover}" alt="Обложка" data-tilt>
-        </div>
+        <img src="${cover}" alt="Превью" data-tilt>
       </a>
     </div>
-    <!--<h4>${title}</h4>-->`;
+  `;
+});
+
+document.querySelectorAll('textarea').forEach(textarea => {
+  const resize = () => {
+    textarea.style.height = 'auto';
+    textarea.style.height = (textarea.scrollHeight - 30) + 'px';
+  };
+
+  textarea.addEventListener('input', resize);
+  resize();
 });

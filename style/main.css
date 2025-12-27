@@ -20,7 +20,7 @@
   font-family: 'Vela Sans';
   src: url('VelaSans-Bold.woff2') format('woff2'),
     url('VelaSans-Bold.woff') format('woff');
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -77,6 +77,8 @@
   --g30: 1.875rem;
   --g40: 2.5rem;
 
+  --fs: 1.125rem;
+
   --tr: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   --s: superellipse(1.4);
 }
@@ -117,18 +119,16 @@ img {
 
 h1 {
   font-size: 4rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 0.9;
-  letter-spacing: -0.03em;
-  -webkit-text-stroke: 0.04rem var(--text-d);
+  letter-spacing: -0.05em;
 }
 
 h2 {
   font-size: 3rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.02em;
-  -webkit-text-stroke: 0.02rem var(--text-d);
 }
 
 h3 {
@@ -140,7 +140,7 @@ h3 {
 
 h4 {
   font-size: clamp(1.25rem, 1.4vw, 1.5rem);
-  font-weight: 400;
+  font-weight: 500;
   font-weight: normal;
 }
 
