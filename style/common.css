@@ -126,19 +126,66 @@ main {
   font-weight: 500;
 }
 
+.cases {
+  padding: 0 var(--lr);
+  display: flex;
+  flex-direction: column;
+  gap: 6.25rem;
+}
 
+.case {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--g20);
+}
 
+.case-d {
+  display: flex;
+  flex-direction: column;
+  gap: var(--g40);
+}
 
+.case-t {
+  display: flex;
+  flex-direction: column;
+  gap: var(--g10);
+}
 
+.case-img {
+  grid-column: 2 / 4;
+  border-radius: var(--g20);
+  corner-shape: var(--s);
+  overflow: hidden;
 
+  img {
+    width: 100%;
+  }
+}
 
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
 
+.marquee-track {
+  display: inline-flex;
+  gap: 60px;
+  animation: scroll 20s linear infinite;
+}
 
+.marquee-track h3 {
+  margin: 0;
+}
 
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
 
-
-
-
+  to {
+    transform: translateX(-50%);
+  }
+}
 
 
 

@@ -1,6 +1,5 @@
 document.querySelectorAll('.case').forEach(cas => {
   const cover = cas.dataset.cover;
-  const title = cas.dataset.title;
   const description = cas.dataset.description;
   const name = cas.dataset.name;
   const categories = cas.dataset.categories ? cas.dataset.categories.split(' ') : [];
@@ -10,19 +9,26 @@ document.querySelectorAll('.case').forEach(cas => {
 
   cas.innerHTML = `
     <div class="case-d">
-      <p>${name}</p>
-      <h2>${description}</h2>
+      <div class="case-t">
+        <p class="g" style="display: none;">${name}</p>
+        <h2>${description}</h2>
+      </div>
       <div class="cats">
         ${catsHTML}
       </div>
     </div>
     <div class="case-img">
       <a href="${href}">
-        <img src="${cover}" alt="Превью" data-tilt>
+        <img src="${cover}" alt="Превью">
       </a>
     </div>
   `;
 });
+
+// Дублируем контент для бесшовности
+const track = document.getElementById('marqueeTrack');
+const content = track.innerHTML;
+track.innerHTML = content + content;
 
 document.querySelectorAll('textarea').forEach(textarea => {
   const resize = () => {

@@ -76,6 +76,8 @@
   --g25: 1.5625rem;
   --g30: 1.875rem;
   --g40: 2.5rem;
+  --g60: 3.75rem;
+  --g80: 5rem;
 
   --fs: 1.125rem;
 
@@ -125,10 +127,10 @@ h1 {
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.625rem;
   font-weight: 600;
   line-height: 0.95;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
 }
 
 h3 {
