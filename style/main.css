@@ -1,0 +1,146 @@
+@font-face {
+  font-family: 'Vela Sans';
+  src: url('VelaSans-SemiBold.woff2') format('woff2'),
+    url('VelaSans-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vela Sans';
+  src: url('VelaSans-Medium.woff2') format('woff2'),
+    url('VelaSans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vela Sans';
+  src: url('VelaSans-Bold.woff2') format('woff2'),
+    url('VelaSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vela Sans';
+  src: url('VelaSans-Regular.woff2') format('woff2'),
+    url('VelaSans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vela Sans';
+  src: url('VelaSans-Light.woff2') format('woff2'),
+    url('VelaSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg-d: #161616;
+  --bg-l: #fff;
+  --bg-lg: #f5f5f5;
+
+  --text-d: #161616;
+  --text-l: #fff;
+  --text-g: #808080;
+
+  --available: #43EF71;
+  --available-tr: #bababa38;
+
+  --btn-d-d: #161616;
+  --btn-d-h: #fff;
+
+  --btn-pri-d: #FFA54B;
+  --btn-pri-h: #fff;
+
+  --bor-d: #303030;
+  --bor-l: #fff;
+
+  --btn: 1.125rem 1.75rem;
+  --tb: 15rem;
+  --lr: 2.5rem;
+
+  --g5: 0.3125rem;
+  --g10: 0.625rem;
+  --g15: 0.9375rem;
+  --g20: 1.25rem;
+  --g25: 1.5625rem;
+  --g30: 1.875rem;
+  --g40: 2.5rem;
+
+  --tr: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  --s: superellipse(1.4);
+}
+
+#experience {
+  scroll-margin-top: 15rem;
+}
+
+/* [id="2"] {
+  scroll-margin-top: -4.575rem;
+} */
+
+html {
+  box-sizing: border-box;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  display: flex;
+  color: var(--text);
+  outline: none;
+
+  &:hover {
+    color: var(--text-h);
+  }
+}
+
+img {
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  -webkit-text-stroke: 0.04rem var(--text-d);
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  -webkit-text-stroke: 0.02rem var(--text-d);
+}
+
+h3 {
+  font-size: clamp(2rem, 2.5vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-size: clamp(1.25rem, 1.4vw, 1.5rem);
+  font-weight: 400;
+  font-weight: normal;
+}
+
+@media (max-width: 860px) {}
