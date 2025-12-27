@@ -2,7 +2,7 @@ body {
   position: relative;
   max-width: 120rem;
   margin: 0 auto;
-  background: var(--bg-d);
+  background: var(--bg-lg);
 
   font-family: Manrope, sans-serif;
   font-weight: 400;
@@ -16,6 +16,10 @@ body {
 
   .l {
     color: var(--text-l);
+  }
+
+  .gd {
+    color: var(--text-gd);
   }
 }
 
@@ -60,15 +64,28 @@ main {
   font-size: 1.125rem;
   outline: none;
   border: none;
+  font-family: Manrope, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.125rem;
 
   &:hover {
     color: var(--text-d);
     background: var(--btn-d-h);
   }
 
-  .pri {
+  &.pri {
+    padding: 23px 30px 24px;
     background: var(--btn-pri-d);
     color: var(--text-d);
+    border-radius: var(--g10);
+    corner-shape: var(--s);
+    justify-content: center;
+    font-weight: 500;
+
+    &:hover {
+      background: var(--btn-pri-h);
+    }
   }
 }
 
@@ -146,6 +163,10 @@ main {
     flex-direction: column;
     gap: var(--g20);
     grid-column: 2 / 4;
+
+    .btn {
+      margin-top: 3.5rem;
+    }
   }
 }
 
@@ -167,17 +188,17 @@ textarea {
   font-style: normal;
   font-size: 1.125rem;
   color: var(--text-g);
-  box-shadow: 0 2px 0 0 var(--bor-d);
+  box-shadow: 0 1px 0 0 var(--bor-d);
   transition: var(--tr);
 
   &:active,
   &:focus {
     color: var(--text-l);
-    box-shadow: 0 2px 0 0 var(--bor-l);
+    box-shadow: 0 1px 0 0 var(--bor-l);
   }
 
   &:hover {
-    box-shadow: 0 2px 0 0 var(--bor-l);
+    box-shadow: 0 1px 0 0 var(--bor-l);
   }
 }
 
@@ -192,14 +213,14 @@ textarea {
 .file-upload {
   padding: 1rem 0;
   color: var(--text-g);
-  box-shadow: 0 2px 0 0 var(--bor-d);
+  box-shadow: 0 1px 0 0 var(--bor-d);
   transition: var(--tr);
 
   &:active,
   &:focus,
   &:hover {
     color: var(--text-l);
-    box-shadow: 0 2px 0 0 var(--bor-l);
+    box-shadow: 0 1px 0 0 var(--bor-l);
   }
 }
 

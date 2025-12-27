@@ -51,6 +51,7 @@
   --text-d: #161616;
   --text-l: #fff;
   --text-g: #808080;
+  --text-gd: #424242;
 
   --available: #43EF71;
   --available-tr: #bababa38;
@@ -90,7 +91,7 @@
 
 html {
   box-sizing: border-box;
-  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+  scrollbar-color: var(--text-g) transparate;
   scroll-behavior: smooth;
 }
 

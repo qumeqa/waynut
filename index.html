@@ -25,7 +25,7 @@
   <main>
     <div class="hdn">
       <div class="hdn-c">
-        <img src="img/logo.svg" alt="Waynut">
+        <img class="logo" src="img/logo.svg" alt="Waynut">
         <nav class="links">
           <ul>
             <li><a href="#cases" class="link">Главная</a></li>
@@ -49,9 +49,10 @@
       <div class="contact-c">
         <div class="v-c">
           <h2 class="l">Давайте обсудим <br> ваш проект</h2>
-          <p class="g">Отправляя заявку, вы соглашаетесь с <a class="d" href="documents/privacy_policy.docx"
-              target="_blank">политикой
-              конфиденциальности</a></p>
+          <p class="gd">
+            Отправляя заявку, вы соглашаетесь с
+            <a class="g" href="docs/privacy_policy.docx" target="_blank">политикой конфиденциальности</a>
+          </p>
         </div>
         <form id="contact-form">
           <div class="form-in">
@@ -63,7 +64,8 @@
           <textarea id="comment" rows="1" contenteditable="true" placeholder="Описание задачи"></textarea>
           <div class="file-upload">
             <label for="file-input" class="file-label">
-              <span>+ Прикрепить файл</span>
+              <span style="display: flex; align-items: center; gap: var(--g10);"><span
+                  style="font-size: 2rem; font-weight: 300; line-height: 80%;">+</span> Прикрепить файл</span>
               <input type="file" id="file-input" name="file" multiple style="display: none;">
             </label>
             <div class="file-list"></div>
