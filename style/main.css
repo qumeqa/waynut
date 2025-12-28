@@ -59,8 +59,11 @@
   --btn-d-d: #161616;
   --btn-d-h: #fff;
 
-  --btn-pri-d: #FFA54B;
-  --btn-pri-h: #fff;
+  --btn-l-d: #fff;
+  --btn-l-h: #d9d9d9;
+
+  --btn-p-d: #FFA54B;
+  --btn-p-h: #fff;
 
   --bor-d: #303030;
   --bor-l: #fff;
@@ -81,7 +84,8 @@
 
   --fs: 1.125rem;
 
-  --tr: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  --tr: color 0.3s ease, background 0.3s ease,
+    box-shadow 0.3s ease, transform 0.3s ease;
   --s: superellipse(1.4);
 }
 
@@ -134,16 +138,16 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(2rem, 2.5vw, 2.5rem);
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
 }
 
 h4 {
-  font-size: clamp(1.25rem, 1.4vw, 1.5rem);
+  font-size: 24px;
+  line-height: 1.1;
   font-weight: 500;
-  font-weight: normal;
 }
 
 @media (max-width: 860px) {}

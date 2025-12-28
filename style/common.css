@@ -3,6 +3,7 @@ body {
   max-width: 120rem;
   margin: 0 auto;
   background: var(--bg-lg);
+  height: 100vh;
 
   font-family: Manrope, sans-serif;
   font-weight: 400;
@@ -23,11 +24,74 @@ body {
   }
 }
 
+.simplebar-scrollbar::after {
+  background-color: var(--text-d) !important;
+  opacity: 1;
+}
+
 header {
   position: absolute;
   top: var(--g20);
   left: 50%;
   transform: translateX(-50%);
+}
+
+.menu-overlay {
+  position: fixed;
+  top: var(--g20);
+  left: var(--lr);
+  right: var(--lr);
+  bottom: var(--g20);
+  background: var(--bg-d);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  clip-path: inset(0% 0% 100% 100% round var(--g10));
+  opacity: 0;
+  transition: clip-path 0.9s ease,
+    opacity 0.2s ease 0.6s;
+
+  #close-btn {
+    position: absolute;
+    top: var(--g40);
+    right: var(--g40);
+  }
+}
+
+.menu-overlay.active {
+  clip-path: inset(0% 0% 0% 0% round var(--g10));
+  opacity: 1;
+  transition: clip-path 0.9s ease,
+    opacity 0.2s ease 0s;
+}
+
+.menu-overlay>* {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.menu-overlay.active>* {
+  opacity: 1;
+  transition-delay: 0.3s;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--g20);
+  background: var(--bg-d);
+  border-radius: var(--g20);
+  corner-shape: var(--s);
+  padding: var(--g20) var(--lr);
+
+  #contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g20);
+    grid-column: 2 / 4;
+  }
 }
 
 main {
@@ -37,6 +101,7 @@ main {
 .hdn {
   display: flex;
   padding: var(--tb) var(--lr);
+  padding-top: calc(var(--tb) + var(--g40));
   background: radial-gradient(ellipse 50% 100% at center top, rgba(255, 175, 94, 0.75) 0%, rgba(255, 175, 94, 0) 100%);
 }
 
@@ -59,10 +124,11 @@ main {
   color: var(--text-l);
   background: var(--btn-d-d);
   transition: var(--tr);
-  border-radius: var(--g20);
+  border-radius: var(--g10);
   corner-shape: var(--s);
   outline: none;
   border: none;
+
   font-family: Manrope, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -73,17 +139,31 @@ main {
     background: var(--btn-d-h);
   }
 
-  &.pri {
+  &.btn-p {
     padding: 23px 30px 24px;
-    background: var(--btn-pri-d);
+    background: var(--btn-p-d);
     color: var(--text-d);
-    border-radius: var(--g10);
-    corner-shape: var(--s);
     justify-content: center;
     font-weight: 500;
 
     &:hover {
-      background: var(--btn-pri-h);
+      background: var(--btn-p-h);
+    }
+  }
+
+  &.btn-l {
+    width: 4.5rem;
+    height: 4.5rem;
+    padding: 0;
+    background: var(--btn-l-d);
+    color: var(--text-d);
+    border-radius: 50%;
+    corner-shape: initial;
+    justify-content: center;
+    font-weight: 500;
+
+    &:hover {
+      background: var(--btn-l-h);
     }
   }
 }
@@ -128,64 +208,103 @@ main {
 
 .cases {
   padding: 0 var(--lr);
-  display: flex;
-  flex-direction: column;
-  gap: 6.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: var(--g20);
+  row-gap: var(--g80);
 }
 
 .case {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--g20);
+  display: flex;
+  flex-direction: column;
+  gap: var(--g15);
 }
 
 .case-d {
   display: flex;
   flex-direction: column;
-  gap: var(--g40);
-}
-
-.case-t {
-  display: flex;
-  flex-direction: column;
-  gap: var(--g10);
+  gap: var(--g5);
 }
 
 .case-img {
-  grid-column: 2 / 4;
   border-radius: var(--g20);
   corner-shape: var(--s);
   overflow: hidden;
 
   img {
     width: 100%;
+    transition: var(--tr);
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.02);
+    }
   }
 }
 
-.marquee-container {
-  overflow: hidden;
+.marquee {
+  padding: var(--tb) var(--lr);
+}
+
+.marquee-c {
+  padding: 1rem 0;
   white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right,
+      transparent 0%,
+      black 25%,
+      black 75%,
+      transparent 100%);
 }
 
 .marquee-track {
   display: inline-flex;
-  gap: 60px;
   animation: scroll 20s linear infinite;
+  will-change: transform;
 }
 
 .marquee-track h3 {
   margin: 0;
+  padding-right: 4rem;
 }
 
 @keyframes scroll {
-  from {
-    transform: translateX(0);
+  0% {
+    transform: translate3d(0, 0, 0);
   }
 
-  to {
-    transform: translateX(-50%);
+  100% {
+    transform: translate3d(-50%, 0, 0);
   }
 }
+
+.advantages {
+  padding: 0 var(--lr);
+}
+
+.block-h {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--g20);
+
+  h2 {
+    grid-column: 2 / 4;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -224,7 +343,7 @@ main {
 
 input,
 textarea {
-  padding: 1rem 0;
+  padding: 1.25rem 0;
   height: max-content;
   background: none;
   border: none;

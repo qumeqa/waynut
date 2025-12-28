@@ -1,44 +1,74 @@
-document.querySelectorAll('.case').forEach(cas => {
-  const cover = cas.dataset.cover;
-  const description = cas.dataset.description;
-  const name = cas.dataset.name;
-  const categories = cas.dataset.categories ? cas.dataset.categories.split(' ') : [];
-  const href = cas.dataset.href;
-
-  const catsHTML = categories.map(cat => `<div class="cat">${cat.trim()}</div>`).join('');
-
-  cas.innerHTML = `
-    <div class="case-d">
-      <div class="case-t">
-        <p class="g" style="display: none;">${name}</p>
-        <h2>${description}</h2>
-      </div>
-      <div class="cats">
-        ${catsHTML}
-      </div>
-    </div>
-    <div class="case-img">
-      <a href="${href}">
-        <img src="${cover}" alt="Превью">
-      </a>
-    </div>
-  `;
+document.addEventListener('DOMContentLoaded', () => {
+  new SimpleBar(document.body, {
+    autoHide: false
+  });
 });
 
-// Дублируем контент для бесшовности
-const track = document.getElementById('marqueeTrack');
-const content = track.innerHTML;
-track.innerHTML = content + content;
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
+const menuOverlay = document.getElementById('menu-overlay');
+
+menuBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  menuOverlay.classList.add('active');
+});
+
+closeBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  menuOverlay.classList.remove('active');
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    menuOverlay.classList.remove('active');
+  }
+  if (e.key === 'c' || e.key === 'C' || e.key === 'с' || e.key === 'С') {
+    e.preventDefault();
+    menuOverlay.classList.toggle('active');
+  }
+});
+
+
 
 document.querySelectorAll('textarea').forEach(textarea => {
   const resize = () => {
     textarea.style.height = 'auto';
-    textarea.style.height = (textarea.scrollHeight - 30) + 'px';
+    textarea.style.height = (textarea.scrollHeight - 50) + 'px';
   };
 
   textarea.addEventListener('input', resize);
   resize();
 });
+
+
+
+document.querySelectorAll('.case').forEach(cas => {
+  const cover = cas.dataset.cover;
+  const description = cas.dataset.description;
+  const name = cas.dataset.name;
+  const href = cas.dataset.href;
+
+  cas.innerHTML = `
+    <div class="case-img">
+      <a href="${href}">
+        <img src="${cover}" alt="Превью">
+      </a>
+    </div>
+    <div class="case-d">
+      <p class="g">${name}</p>
+      <h4>${description}</h4>
+    </div>
+  `;
+});
+
+
+
+// Дублируем контент для бесшовности
+const track = document.getElementById('marquee-track');
+const content = track.innerHTML;
+track.innerHTML = content + content;
+
+
 
 //форма заявок
 document.getElementById('name').addEventListener('input', function () {
@@ -92,7 +122,7 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
       let error = {};
       try {
         error = await response.json();
-      } catch {}
+      } catch { }
       alert('Ошибка: ' + JSON.stringify(error.errors || error));
     }
   } catch (err) {
