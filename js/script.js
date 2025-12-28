@@ -100,3 +100,52 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
     console.error(err);
   }
 });
+
+//драг и дроп
+const fileLabel = document.querySelector('.file-label');
+const fileInput = document.getElementById('file-input');
+const fileList = document.querySelector('.file-list');
+
+// Предотвращаем стандартное поведение
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  fileLabel.addEventListener(eventName, preventDefaults, false);
+});
+
+function preventDefaults(e) {
+  e.preventDefault();
+  e.stopPropagation();
+}
+
+// Визуальная обратная связь
+['dragenter', 'dragover'].forEach(eventName => {
+  fileLabel.addEventListener(eventName, () => {
+    fileLabel.style.background = 'var(--btn-d-h)';
+  });
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  fileLabel.addEventListener(eventName, () => {
+    fileLabel.style.background = '';
+  });
+});
+
+// Обработка drop
+fileLabel.addEventListener('drop', (e) => {
+  const files = e.dataTransfer.files;
+  handleFiles(files);
+});
+
+// Обработка обычного выбора
+fileInput.addEventListener('change', (e) => {
+  handleFiles(e.target.files);
+});
+
+function handleFiles(files) {
+  fileList.innerHTML = '';
+  [...files].forEach(file => {
+    const fileItem = document.createElement('div');
+    fileItem.textContent = file.name;
+    fileItem.className = 'file-item';
+    fileList.appendChild(fileItem);
+  });
+}
