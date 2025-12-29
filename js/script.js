@@ -69,111 +69,205 @@ track.innerHTML = content + content;
 
 
 //форма заявок
-document.getElementById('name').addEventListener('input', function () {
-  this.value = this.value.replace(/[^А-Яа-яA-Za-z\s]/g, '');
-});
+/* ===============================
+   СИНХРОНИЗАЦИЯ ФОРМ
+================================ */
+function syncForms() {
+  const forms = document.querySelectorAll('.contact-form');
 
-document.getElementById('phone').addEventListener('input', function () {
-  this.value = this.value.replace(/[^0-9+\-\s()]/g, '');
-});
+  forms.forEach(form => {
+    form.addEventListener('input', (e) => {
+      const target = e.target;
+      const { name, type, value, files } = target;
+      if (!name) return;
 
-const phoneInput = document.getElementById('phone');
+      forms.forEach(otherForm => {
+        if (otherForm === form) return;
 
-phoneInput.addEventListener('input', () => {
-  phoneInput.value = phoneInput.value.replace(/[^0-9+]/g, '');
-});
+        const field = otherForm.querySelector(`[name="${name}"]`);
+        if (!field) return;
 
-document.getElementById('contact-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const formName = document.getElementById('name');
-  const formCompany = document.getElementById('company');
-  const formEmail = document.getElementById('email');
-  const formPhone = document.getElementById('phone');
-  const formComment = document.getElementById('comment');
-  const fileInput = document.getElementById('file-input');
-
-  const formData = new FormData();
-  formData.append('name', formName.value.trim());
-  formData.append('company', formCompany.value.trim());
-  formData.append('email', formEmail.value.trim());
-  formData.append('phone', formPhone.value.trim());
-  formData.append('comment', formComment.value.trim());
-
-  // Добавляем файлы
-  if (fileInput.files.length > 0) {
-    for (let file of fileInput.files) {
-      formData.append('files', file);
-    }
-  }
-
-  try {
-    const response = await fetch('http://127.0.0.1:5001/send-form', {
-      method: 'POST',
-      body: formData
+        if (type === 'file') {
+          field.files = files;
+        } else if (field.value !== value) {
+          field.value = value;
+        }
+      });
     });
-
-    if (response.ok) {
-      alert('Заявка отправлена');
-      e.target.reset();
-    } else {
-      let error = {};
-      try {
-        error = await response.json();
-      } catch { }
-      alert('Ошибка: ' + JSON.stringify(error.errors || error));
-    }
-  } catch (err) {
-    alert('Ошибка сети');
-    console.error(err);
-  }
-});
-
-//драг и дроп
-const fileLabel = document.querySelector('.file-label');
-const fileInput = document.getElementById('file-input');
-const fileList = document.querySelector('.file-list');
-
-// Предотвращаем стандартное поведение
-['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-  fileLabel.addEventListener(eventName, preventDefaults, false);
-});
-
-function preventDefaults(e) {
-  e.preventDefault();
-  e.stopPropagation();
+  });
 }
 
-// Визуальная обратная связь
-['dragenter', 'dragover'].forEach(eventName => {
-  fileLabel.addEventListener(eventName, () => {
-    fileLabel.style.background = 'var(--btn-d-h)';
+syncForms();
+
+/* ===============================
+   ФИЛЬТРАЦИЯ ПОЛЕЙ
+================================ */
+document.addEventListener('input', (e) => {
+  if (e.target.name === 'name') {
+    e.target.value = e.target.value.replace(/[^А-Яа-яA-Za-z\s]/g, '');
+  }
+
+  if (e.target.name === 'phone') {
+    e.target.value = e.target.value.replace(/[^0-9+]/g, '');
+  }
+});
+
+/* ===============================
+   ОТПРАВКА ФОРМЫ
+================================ */
+function initFormSubmit() {
+  const forms = document.querySelectorAll('.contact-form');
+
+  forms.forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      if (sharedFiles) {
+        [...sharedFiles].forEach(file => {
+          formData.append('files', file);
+        });
+      }
+    
+      try {
+        const response = await fetch('http://127.0.0.1:5001/send-form', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          showToast('Заявка отправлена!', 5000, 'success');
+          forms.forEach(f => f.reset());
+          clearFileLists();
+          document.querySelectorAll('input[type="file"]').forEach(input => {
+            updateFileLabelText(input);
+          });
+        } else {
+          alert('Ошибка отправки');
+        }
+      } catch (err) {
+        alert('Ошибка сети');
+        console.error(err);
+      }
+    });
   });
-});
+}
 
-['dragleave', 'drop'].forEach(eventName => {
-  fileLabel.addEventListener(eventName, () => {
-    fileLabel.style.background = '';
+initFormSubmit();
+
+/* ===============================
+   DRAG & DROP ФАЙЛОВ
+================================ */
+document.querySelectorAll('.file-upload').forEach(upload => {
+  const fileLabel = upload.querySelector('.file-label');
+  const fileInput = upload.querySelector('input[type="file"]');
+  const fileList = upload.querySelector('.file-list');
+
+  fileLabel.addEventListener('click', () => {
+    fileInput.click();
   });
-});
+  
+  
 
-// Обработка drop
-fileLabel.addEventListener('drop', (e) => {
-  const files = e.dataTransfer.files;
-  handleFiles(files);
-});
+  const preventDefaults = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
 
-// Обработка обычного выбора
-fileInput.addEventListener('change', (e) => {
-  handleFiles(e.target.files);
-});
-
-function handleFiles(files) {
-  fileList.innerHTML = '';
-  [...files].forEach(file => {
-    const fileItem = document.createElement('div');
-    fileItem.textContent = file.name;
-    fileItem.className = 'file-item';
-    fileList.appendChild(fileItem);
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    fileLabel.addEventListener(eventName, preventDefaults);
   });
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    fileLabel.addEventListener(eventName, () => {
+      fileLabel.style.background = 'var(--btn-d-h)';
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    fileLabel.addEventListener(eventName, () => {
+      fileLabel.style.background = '';
+    });
+  });
+
+  fileLabel.addEventListener('drop', (e) => {
+    fileInput.files = e.dataTransfer.files;
+    updateAllFileLists(fileInput.files);
+    updateFileLabelText(fileInput);
+  });
+  
+  
+
+  fileInput.addEventListener('change', () => {
+    updateAllFileLists(fileInput.files);
+    updateFileLabelText(fileInput);
+  });
+  
+  
+});
+
+
+let sharedFiles = null;
+
+function updateAllFileLists(files) {
+  sharedFiles = files;
+
+  document.querySelectorAll('.file-list').forEach(list => {
+    list.innerHTML = '';
+    [...files].forEach(file => {
+      const item = document.createElement('div');
+      item.className = 'file-item';
+      list.appendChild(item);
+    });
+  });
+}
+
+function updateFileLabelText(fileInput) {
+  const labelTexts = document.querySelectorAll('.file-label-text');
+  const files = fileInput.files;
+
+  labelTexts.forEach(labelText => {
+    if (!files || files.length === 0) {
+      labelText.innerHTML = `
+        <span style="font-size: 2rem; font-weight: 300; line-height: 80%">+</span>
+        Прикрепить файл
+      `;
+    } else if (files.length === 1) {
+      labelText.textContent = files[0].name;
+    } else {
+      labelText.textContent = `Файлов: ${files.length}`;
+    }
+  });
+}
+
+
+
+
+function clearFileLists() {
+  document.querySelectorAll('.file-list').forEach(list => {
+    list.innerHTML = '';
+  });
+}
+
+//уведомление
+function showToast(message, duration = 5000, type = 'success') {
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.classList.add('toast');
+  
+  // Можно менять цвет в зависимости от типа
+  if (type === 'error') toast.style.backgroundColor = '#f44336';
+  if (type === 'success') toast.style.backgroundColor = '#4caf50';
+  
+  toast.textContent = message;
+  container.appendChild(toast);
+  
+  // Анимация появления
+  setTimeout(() => toast.classList.add('show'), 10);
+  
+  // Автоудаление через duration
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300); // после анимации скрытия
+  }, duration);
 }

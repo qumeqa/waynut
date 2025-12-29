@@ -151,3 +151,22 @@ h4 {
 }
 
 @media (max-width: 860px) {}
+
+/* CSS: стили для уведомлений */
+.toast {
+  min-width: 200px;
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  color: #fff;
+  background-color: #4caf50; /* зелёный для успеха */
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
