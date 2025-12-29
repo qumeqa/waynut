@@ -38,19 +38,17 @@ header {
 
 .menu-overlay {
   position: fixed;
-  top: var(--g20);
-  left: var(--g20);
-  right: var(--g20);
-  bottom: var(--g20);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--bg-d);
-  border-radius: var(--g20);
-  corner-shape: var(--s);
   z-index: 100;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  clip-path: circle(0% at 92% 3%);
+  clip-path: circle(0% at 92% 5%);
   transition: clip-path 0.9s ease-in-out;
 
   #close-btn {
@@ -65,7 +63,7 @@ header {
 }
 
 .menu-overlay.active {
-  clip-path: circle(140% at 92% 3%);
+  clip-path: circle(140% at 92% 5%);
 }
 
 .menu-overlay>* {
@@ -93,6 +91,23 @@ header {
     gap: var(--g20);
     grid-column: 2 / 4;
   }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--g20);
+  grid-column: 2 / 4;
+
+  .btn {
+    margin-top: 3.5rem;
+  }
+}
+
+.form-in {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--g20);
 }
 
 main {
@@ -372,23 +387,6 @@ main {
   border-radius: var(--g20);
   corner-shape: var(--s);
   padding: var(--g40);
-
-  #contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--g20);
-    grid-column: 2 / 4;
-
-    .btn {
-      margin-top: 3.5rem;
-    }
-  }
-}
-
-.form-in {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--g20);
 }
 
 input,
