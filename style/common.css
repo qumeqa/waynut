@@ -329,6 +329,21 @@ main {
   }
 }
 
+.res {
+  padding: 0 var(--lr);
+  margin-top: -20vh;
+  height: 400vh;
+}
+
+.res-h {
+  display: flex;
+  position: sticky;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 44vh;
+}
 
 
 
