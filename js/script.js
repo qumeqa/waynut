@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  new SimpleBar(document.body, {
-    autoHide: false
-  });
+  new SimpleBar(document.body);
 });
 
 const menuBtn = document.getElementById('menu-btn');
