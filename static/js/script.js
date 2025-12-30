@@ -14,26 +14,33 @@ window.addEventListener('scroll', () => {
 });
 
 
-
-const menuBtn = document.getElementById('menu-btn');
-const closeBtn = document.getElementById('close-btn');
+const menuBtns = document.querySelectorAll('.menu-btn');
+const closeBtns = document.querySelectorAll('.close-btn');
 const menuOverlay = document.getElementById('menu-overlay');
 
-menuBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  menuOverlay.classList.add('active');
+// открыть меню
+menuBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    menuOverlay.classList.add('active');
+  });
 });
 
-closeBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  menuOverlay.classList.remove('active');
+// закрыть меню
+closeBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    menuOverlay.classList.remove('active');
+  });
 });
 
+// клавиатура
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     menuOverlay.classList.remove('active');
   }
-  if (e.key === 'c' || e.key === 'C' || e.key === 'с' || e.key === 'С') {
+
+  if (['c', 'C', 'с', 'С'].includes(e.key)) {
     e.preventDefault();
     menuOverlay.classList.toggle('active');
   }
