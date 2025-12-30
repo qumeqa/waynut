@@ -1,6 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
-  new SimpleBar(document.body);
+const header = document.querySelector('header');
+const scrollThreshold = 100;
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > scrollThreshold) {
+    header.classList.add('show');
+  }
+
+  else {
+    header.classList.remove('show');
+  }
 });
+
+
 
 const menuBtn = document.getElementById('menu-btn');
 const closeBtn = document.getElementById('close-btn');
@@ -61,17 +74,79 @@ document.querySelectorAll('.case').forEach(cas => {
 
 
 
-// Дублируем контент для бесшовности
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from('.gsap-1', {
+  scrollTrigger: '.gsap-1',
+  opacity: 0,
+  y: 40,
+  duration: 1.2,
+  ease: "power2.out",
+  delay: 0.15
+});
+
+gsap.from('.gsap-2', {
+  scrollTrigger: '.gsap-2',
+  opacity: 0,
+  y: 80,
+  duration: 1.2,
+  ease: "power2.out",
+  delay: 0.3
+});
+
+gsap.from('.gsap-3', {
+  scrollTrigger: '.gsap-3',
+  opacity: 0,
+  y: 120,
+  duration: 1.2,
+  ease: "power2.out",
+  delay: 0.45
+});
+
+gsap.from('.gsap-4', {
+  scrollTrigger: '.gsap-4',
+  opacity: 0,
+  y: 80,
+  duration: 1.2,
+  ease: "power2.out",
+  delay: 0.3
+});
+
+gsap.from('.gsap-5', {
+  scrollTrigger: '.gsap-4',
+  opacity: 0,
+  y: 120,
+  duration: 1.2,
+  ease: "power2.out",
+  delay: 0.45
+});
+
+
+
 const track = document.getElementById('marquee-track');
 const content = track.innerHTML;
 track.innerHTML = content + content;
 
 
 
-//форма заявок
-/* ===============================
-   СИНХРОНИЗАЦИЯ ФОРМ
-================================ */
+const res = document.querySelector('.res');
+const resH = document.querySelector('.res-h');
+
+window.addEventListener('scroll', () => {
+  if (!res || !resH) return;
+
+  const resRect = res.getBoundingClientRect();
+
+  // Добавляем класс, когда верх родителя поднялся выше viewport на 100px
+  if (resRect.top <= -100) {
+    resH.classList.add('fixed');
+  } else {
+    resH.classList.remove('fixed');
+  }
+});
+
+
+
 function syncForms() {
   const forms = document.querySelectorAll('.contact-form');
 
@@ -128,7 +203,7 @@ function initFormSubmit() {
           formData.append('files', file);
         });
       }
-    
+
       try {
         const response = await fetch('http://127.0.0.1:5001/send-form', {
           method: 'POST',
@@ -166,8 +241,8 @@ document.querySelectorAll('.file-upload').forEach(upload => {
   fileLabel.addEventListener('click', () => {
     fileInput.click();
   });
-  
-  
+
+
 
   const preventDefaults = (e) => {
     e.preventDefault();
@@ -195,15 +270,15 @@ document.querySelectorAll('.file-upload').forEach(upload => {
     updateAllFileLists(fileInput.files);
     updateFileLabelText(fileInput);
   });
-  
-  
+
+
 
   fileInput.addEventListener('change', () => {
     updateAllFileLists(fileInput.files);
     updateFileLabelText(fileInput);
   });
-  
-  
+
+
 });
 
 
@@ -254,17 +329,17 @@ function showToast(message, duration = 5000, type = 'success') {
   const container = document.getElementById('toast-container');
   const toast = document.createElement('div');
   toast.classList.add('toast');
-  
+
   // Можно менять цвет в зависимости от типа
   if (type === 'error') toast.style.backgroundColor = '#f44336';
   if (type === 'success') toast.style.backgroundColor = '#4caf50';
-  
+
   toast.textContent = message;
   container.appendChild(toast);
-  
+
   // Анимация появления
   setTimeout(() => toast.classList.add('show'), 10);
-  
+
   // Автоудаление через duration
   setTimeout(() => {
     toast.classList.remove('show');
