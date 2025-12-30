@@ -55,6 +55,7 @@
   --text-l: #fff;
   --text-g: #808080;
   --text-gd: #424242;
+  --text-r: #60D884;
 
   --available: #43EF71;
   --available-tr: #bababa38;
@@ -91,8 +92,9 @@
   --tr: color 0.3s ease, background 0.3s ease,
     box-shadow 0.3s ease, transform 0.3s ease,
     fill 0.3s ease, padding 0.3s ease;
-  --tr-m: transform 0.45s ease;
-  --tr-l: transform 0.6s ease, opacity 0.6s ease;
+  --tr-m: transform 0.6s ease;
+  --tr-l: transform 0.9s ease, opacity 0.9s ease;
+
   --s: superellipse(1.3);
 }
 
@@ -148,10 +150,12 @@ path {
 .gsap-7,
 .gsap-8 {
   will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -0.05em;
@@ -160,7 +164,7 @@ h1 {
 h2 {
   font-size: 2.5rem;
   font-weight: 600;
-  line-height: 0.95;
+  line-height: 1;
   letter-spacing: -0.04em;
 }
 

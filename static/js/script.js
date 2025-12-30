@@ -87,7 +87,7 @@ gsap.from('.gsap-1', {
   scrollTrigger: '.gsap-1',
   opacity: 0,
   y: 40,
-  duration: 1.2,
+  duration: 1.5,
   ease: "power2.out",
   delay: 0.15
 });
@@ -96,7 +96,7 @@ gsap.from('.gsap-2', {
   scrollTrigger: '.gsap-2',
   opacity: 0,
   y: 80,
-  duration: 1.2,
+  duration: 1.35,
   ease: "power2.out",
   delay: 0.3
 });
@@ -111,24 +111,62 @@ gsap.from('.gsap-3', {
 });
 
 gsap.from('.gsap-4', {
-  scrollTrigger: '.gsap-4',
+  scrollTrigger: '.gsap-5',
   opacity: 0,
   y: 80,
-  duration: 1.2,
+  duration: 1.35,
   ease: "power2.out",
-  delay: 0.3
+  delay: 0
 });
 
 gsap.from('.gsap-5', {
-  scrollTrigger: '.gsap-4',
+  scrollTrigger: '.gsap-5',
   opacity: 0,
   y: 120,
   duration: 1.2,
   ease: "power2.out",
-  delay: 0.45
+  delay: 0.15
 });
 
+gsap.from('.gsap-6', {
+  scrollTrigger: {
+    trigger: '.gsap-6',
+    start: 'top 80%', // Когда элемент на 80% экрана
+  },
+  opacity: 0,
+  y: 80,
+  duration: 1.35,
+  ease: "power2.out",
+  delay: 0
+});
 
+// gsap.utils.toArray('.gsap-6l').forEach((el, index) => {
+//   gsap.from(el, {
+//     scrollTrigger: {
+//       trigger: el,
+//       start: 'top bottom',
+//       markers: true
+//     },
+//     opacity: 0,
+//     x: -80,
+//     duration: 1.2,
+//     ease: "power2.out"
+//   });
+// });
+
+// gsap.utils.toArray('.gsap-6r').forEach((el, index) => {
+//   gsap.from(el, {
+//     scrollTrigger: {
+//       trigger: el,
+//       start: 'top bottom',
+//       markers: true
+//     },
+//     opacity: 0,
+//     x: 80,
+//     duration: 1.2,
+//     ease: "power2.out"
+//   });
+// });
 
 const track = document.getElementById('marquee-track');
 const content = track.innerHTML;
