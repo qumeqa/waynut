@@ -8,7 +8,15 @@
   <meta name="description" content="Создаем уникальные фотожурналы для особенных моментов жизни.
   Профессиональная фотосессия, дизайн и печать — вам остается только наслаждаться результатом">
 
-  <!-- <link rel="preload" href="fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin> -->
+  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-Regular.woff2') }}" as="font"
+    type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-Medium.woff2') }}" as="font" type="font/woff2"
+    crossorigin>
+  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-SemiBold.woff2') }}" as="font"
+    type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-Bold.woff2') }}" as="font" type="font/woff2"
+    crossorigin>
+
   <!-- <link rel="preload" href="img/2.webp" as="image"> -->
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
