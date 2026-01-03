@@ -54,8 +54,10 @@
   --text-d: #161616;
   --text-l: #fff;
   --text-g: #808080;
-  --text-gd: #424242;
+  --text-gd: #464646;
   --text-r: #60D884;
+
+  --text-g-tr: #00000080;
 
   --available: #43EF71;
   --available-tr: #bababa38;
@@ -63,8 +65,10 @@
   --btn-d-d: #161616;
   --btn-d-h: #fff;
 
+  --btn-dh-g: #f0f0f0;
+
   --btn-l-d: #fff;
-  --btn-l-h: #d9d9d9;
+  --btn-l-h: #f0f0f0;
 
   --btn-p-d: #FFA54B;
   --btn-p-h: #fff;
@@ -86,9 +90,11 @@
   --g60: 3.75rem;
   --g80: 5rem;
   --g120: 7.5rem;
+  --g240: 15rem;
 
   --fs: 1.125rem;
 
+  --tr-f: opacity 0.075s ease;
   --tr: color 0.3s ease, background 0.3s ease,
     box-shadow 0.3s ease, transform 0.3s ease,
     fill 0.3s ease, padding 0.3s ease;
@@ -115,6 +121,7 @@ html {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 ::selection {

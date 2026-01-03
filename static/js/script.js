@@ -1,17 +1,15 @@
 const header = document.querySelector('header');
 const scrollThreshold = 100;
-
 window.addEventListener('scroll', () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
   if (scrollTop > scrollThreshold) {
     header.classList.add('show');
   }
-
   else {
     header.classList.remove('show');
   }
 });
+
 
 
 const menuBtns = document.querySelectorAll('.menu-btn');
@@ -48,97 +46,122 @@ document.addEventListener('keydown', (e) => {
 
 
 
-document.querySelectorAll('textarea').forEach(textarea => {
-  const resize = () => {
+const textareas = document.querySelectorAll('textarea');
+const maxHeight = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5 * 10;
+
+const resizeAll = () => {
+  textareas.forEach(textarea => {
     textarea.style.height = 'auto';
-    textarea.style.height = (textarea.scrollHeight - 50) + 'px';
-  };
+    const scrollHeight = textarea.scrollHeight;
 
-  textarea.addEventListener('input', resize);
-  resize();
+    if (scrollHeight > maxHeight) {
+      textarea.style.height = maxHeight + 'px';
+      textarea.style.overflowY = 'auto';
+    } else {
+      textarea.style.height = scrollHeight + 'px';
+      textarea.style.overflowY = 'hidden';
+    }
+  });
+};
+
+textareas.forEach(textarea => {
+  textarea.addEventListener('input', resizeAll);
 });
 
+resizeAll();
 
 
-document.querySelectorAll('.case').forEach(cas => {
-  const cover = cas.dataset.cover;
-  const description = cas.dataset.description;
-  const name = cas.dataset.name;
-  const href = cas.dataset.href;
+// document.querySelectorAll('.case').forEach(cas => {
+//   const cover = cas.dataset.cover;
+//   const description = cas.dataset.description;
+//   const name = cas.dataset.name;
+//   const href = cas.dataset.href;
 
-  cas.innerHTML = `
-    <div class="case-img">
-      <a href="${href}">
-        <img src="${cover}" alt="Превью">
-      </a>
-    </div>
-    <div class="case-d">
-      <p class="g">${name}</p>
-      <h4>${description}</h4>
-    </div>
-  `;
-});
+//   cas.innerHTML = `
+//     <div class="case-img">
+//       <a href="${href}">
+//         <img src="${cover}" alt="Превью">
+//       </a>
+//     </div>
+//     <div class="case-d">
+//       <p class="g">${name}</p>
+//       <h4>${description}</h4>
+//     </div>
+//   `;
+// });
 
 
 
 gsap.registerPlugin(ScrollTrigger);
 
+function animateTextLines(selector, options = {}) {
+  const elements = document.querySelectorAll(selector);
+  const settings = { ...options };
+  elements.forEach((element, elementIndex) => {
+    const split = new SplitType(element, { types: 'lines' });
+    gsap.from(split.lines, {
+      opacity: 0,
+      y: settings.y,
+      duration: settings.duration,
+      ease: "power2.out",
+      stagger: settings.stagger,  // Используем из настроек
+      delay: settings.delay
+    });
+  });
+}
+
 gsap.from('.gsap-1', {
   scrollTrigger: '.gsap-1',
   opacity: 0,
   y: 40,
-  duration: 1.5,
+  duration: 1.4,
   ease: "power2.out",
   delay: 0.15
 });
 
-gsap.from('.gsap-2', {
-  scrollTrigger: '.gsap-2',
-  opacity: 0,
+animateTextLines('.gsap-2', {
   y: 80,
-  duration: 1.35,
-  ease: "power2.out",
-  delay: 0.3
+  duration: 1.3,
+  delay: 0.3,
+  stagger: 0.15  // Задержка между строками для gsap-2
 });
 
-gsap.from('.gsap-3', {
-  scrollTrigger: '.gsap-3',
-  opacity: 0,
-  y: 120,
+animateTextLines('.gsap-3', {
+  y: 40,
   duration: 1.2,
-  ease: "power2.out",
-  delay: 0.45
+  delay: 0.45,
+  stagger: 0.1  // Другая задержка между строками для gsap-3
 });
 
 gsap.from('.gsap-4', {
-  scrollTrigger: '.gsap-5',
-  opacity: 0,
-  y: 80,
-  duration: 1.35,
-  ease: "power2.out",
-  delay: 0
-});
-
-gsap.from('.gsap-5', {
-  scrollTrigger: '.gsap-5',
+  scrollTrigger: '.gsap-4',
   opacity: 0,
   y: 120,
   duration: 1.2,
   ease: "power2.out",
-  delay: 0.15
+  delay: 0.6
 });
 
-gsap.from('.gsap-6', {
-  scrollTrigger: {
-    trigger: '.gsap-6',
-    start: 'top 80%', // Когда элемент на 80% экрана
-  },
-  opacity: 0,
-  y: 80,
-  duration: 1.35,
-  ease: "power2.out",
-  delay: 0
-});
+// gsap.from('.gsap-5', {
+//   scrollTrigger: '.gsap-5',
+//   opacity: 0,
+//   y: 120,
+//   duration: 1.05,
+//   ease: "power2.out",
+//   delay: 0.15
+// });
+
+// gsap.from('.gsap-6', {
+//   scrollTrigger: {
+//     trigger: '.gsap-6',
+//     start: 'top 80%',
+//   },
+//   opacity: 0,
+//   y: 80,
+//   duration: 1.05,
+//   ease: "power2.out",
+//   delay: 0.15
+// });
 
 // gsap.utils.toArray('.gsap-6l').forEach((el, index) => {
 //   gsap.from(el, {
@@ -168,25 +191,25 @@ gsap.from('.gsap-6', {
 //   });
 // });
 
+
+
 const track = document.getElementById('marquee-track');
 const content = track.innerHTML;
 track.innerHTML = content + content;
 
 
 
-const res = document.querySelector('.res');
-const resH = document.querySelector('.res-h');
-
 window.addEventListener('scroll', () => {
-  if (!res || !resH) return;
+  const header = document.querySelector('.res-h');
+  const container = document.querySelector('.res');
+  const rect = container.getBoundingClientRect();
 
-  const resRect = res.getBoundingClientRect();
-
-  // Добавляем класс, когда верх родителя поднялся выше viewport на 100px
-  if (resRect.top <= -100) {
-    resH.classList.add('fixed');
+  if (rect.top <= 0) {
+    const scrolled = Math.abs(rect.top);
+    const opacity = Math.max(0.15, 1 - (scrolled / 250) * 0.85);
+    header.style.opacity = opacity;
   } else {
-    resH.classList.remove('fixed');
+    header.style.opacity = 1;
   }
 });
 
