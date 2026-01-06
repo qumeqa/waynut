@@ -71,24 +71,22 @@ textareas.forEach(textarea => {
 resizeAll();
 
 
-// document.querySelectorAll('.case').forEach(cas => {
-//   const cover = cas.dataset.cover;
-//   const description = cas.dataset.description;
-//   const name = cas.dataset.name;
-//   const href = cas.dataset.href;
+document.querySelectorAll('.case').forEach(cas => {
+  const cover = cas.dataset.cover;
+  const description = cas.dataset.description;
+  const name = cas.dataset.name;
+  const href = cas.dataset.href;
 
-//   cas.innerHTML = `
-//     <div class="case-img">
-//       <a href="${href}">
-//         <img src="${cover}" alt="Превью">
-//       </a>
-//     </div>
-//     <div class="case-d">
-//       <p class="g">${name}</p>
-//       <h4>${description}</h4>
-//     </div>
-//   `;
-// });
+  cas.innerHTML = `
+    <a class="case-img" href="${href}">
+      <img src="${cover}" alt="Превью">
+    </a>
+    <div class="case-d">
+      <p class="g">${name}</p>
+      <h4>${description}</h4>
+    </div>
+  `;
+});
 
 
 
@@ -104,7 +102,7 @@ function animateTextLines(selector, options = {}) {
       y: settings.y,
       duration: settings.duration,
       ease: "power2.out",
-      stagger: settings.stagger,  // Используем из настроек
+      stagger: settings.stagger,
       delay: settings.delay
     });
   });
@@ -123,14 +121,14 @@ animateTextLines('.gsap-2', {
   y: 80,
   duration: 1.3,
   delay: 0.3,
-  stagger: 0.15  // Задержка между строками для gsap-2
+  stagger: 0.15
 });
 
 animateTextLines('.gsap-3', {
   y: 40,
   duration: 1.2,
   delay: 0.45,
-  stagger: 0.1  // Другая задержка между строками для gsap-3
+  stagger: 0.1
 });
 
 gsap.from('.gsap-4', {
@@ -141,55 +139,6 @@ gsap.from('.gsap-4', {
   ease: "power2.out",
   delay: 0.6
 });
-
-// gsap.from('.gsap-5', {
-//   scrollTrigger: '.gsap-5',
-//   opacity: 0,
-//   y: 120,
-//   duration: 1.05,
-//   ease: "power2.out",
-//   delay: 0.15
-// });
-
-// gsap.from('.gsap-6', {
-//   scrollTrigger: {
-//     trigger: '.gsap-6',
-//     start: 'top 80%',
-//   },
-//   opacity: 0,
-//   y: 80,
-//   duration: 1.05,
-//   ease: "power2.out",
-//   delay: 0.15
-// });
-
-// gsap.utils.toArray('.gsap-6l').forEach((el, index) => {
-//   gsap.from(el, {
-//     scrollTrigger: {
-//       trigger: el,
-//       start: 'top bottom',
-//       markers: true
-//     },
-//     opacity: 0,
-//     x: -80,
-//     duration: 1.2,
-//     ease: "power2.out"
-//   });
-// });
-
-// gsap.utils.toArray('.gsap-6r').forEach((el, index) => {
-//   gsap.from(el, {
-//     scrollTrigger: {
-//       trigger: el,
-//       start: 'top bottom',
-//       markers: true
-//     },
-//     opacity: 0,
-//     x: 80,
-//     duration: 1.2,
-//     ease: "power2.out"
-//   });
-// });
 
 
 
@@ -349,7 +298,6 @@ document.querySelectorAll('.file-upload').forEach(upload => {
 
 });
 
-
 let sharedFiles = null;
 
 function updateAllFileLists(files) {
@@ -383,14 +331,13 @@ function updateFileLabelText(fileInput) {
   });
 }
 
-
-
-
 function clearFileLists() {
   document.querySelectorAll('.file-list').forEach(list => {
     list.innerHTML = '';
   });
 }
+
+
 
 //уведомление
 function showToast(message, duration = 5000, type = 'success') {
@@ -413,4 +360,30 @@ function showToast(message, duration = 5000, type = 'success') {
     toast.classList.remove('show');
     setTimeout(() => toast.remove(), 300); // после анимации скрытия
   }, duration);
+}
+
+
+
+// Функция для синхронизации высоты
+function syncFooterHeight() {
+  const footer = document.querySelector('.footer');
+  const fakeFooter = document.querySelector('.fake-footer');
+
+  if (footer && fakeFooter) {
+    const footerHeight = footer.offsetHeight;
+    fakeFooter.style.height = footerHeight + 'px';
+  }
+}
+
+// Синхронизируем высоту при загрузке страницы
+syncFooterHeight();
+
+// Синхронизируем высоту при изменении размера окна
+window.addEventListener('resize', syncFooterHeight);
+
+// Опционально: синхронизация при изменении содержимого (если футер динамический)
+const observer = new ResizeObserver(syncFooterHeight);
+const footer = document.querySelector('.footer');
+if (footer) {
+  observer.observe(footer);
 }
