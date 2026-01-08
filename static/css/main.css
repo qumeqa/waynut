@@ -101,7 +101,6 @@
 } */
 
 html {
-  box-sizing: border-box;
   scrollbar-color: var(--bg-gl) var(--bg-lg);
   scroll-behavior: smooth;
 }
