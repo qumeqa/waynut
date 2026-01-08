@@ -67,7 +67,6 @@ main {
   background: var(--bg-lg);
   border-bottom-left-radius: calc(var(--g25) * 2);
   border-bottom-right-radius: calc(var(--g25) * 2);
-  overflow: hidden;
 }
 
 .main-c {
