@@ -216,7 +216,7 @@ main {
     grid-column: 1 / 4;
 
     .case-img {
-      aspect-ratio: 2 / 1;
+      aspect-ratio: 80 / 33;
     }
   }
 
@@ -232,7 +232,7 @@ main {
     grid-column: 2 / 4;
 
     .case-img {
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16 / 9;
     }
   }
 }
@@ -268,141 +268,6 @@ main {
     }
   }
 }
-
-/* .cases {
-  display: flex;
-  flex-direction: column;
-  padding: 0 var(--lr);
-}
-
-.case {
-  position: sticky;
-}
-
-.case-c {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--g20);
-  padding: var(--g40);
-  border-radius: var(--g25);
-  corner-shape: var(--s);
-  height: 100%;
-  overflow: hidden;
-
-  img {
-    grid-column: 2 / 4;
-    height: auto;
-    width: 100%;
-    object-fit: contain;
-  }
-}
-
-.case-d {
-  display: flex;
-  flex-direction: column;
-  gap: var(--g40);
-  flex: 1;
-  min-height: 0;
-
-  h4 {
-    color: var(--text-g-tr);
-  }
-}
-
-.case-h {
-  display: flex;
-  flex-direction: column;
-  gap: var(--g20);
-}
-
-.case:nth-child(1) {
-  top: 120px;
-  height: calc(100vh - (40px + 120px));
-  z-index: 1;
-  max-height: 803px;
-
-  .case-c {
-    background: #e3e3e3;
-  }
-}
-
-.case:nth-child(2) {
-  top: 120px;
-  height: calc(100vh - (40px + 120px));
-  margin-top: -80px;
-  z-index: 2;
-  max-height: 803px;
-
-  .case-c {
-    background: #b8d5ee;
-  }
-}
-
-.case:nth-child(3) {
-  top: 120px;
-  height: calc(100vh - (40px + 120px));
-  margin-top: -80px;
-  z-index: 3;
-  max-height: 803px;
-
-  .case-c {
-    background: #ebe4cb;
-  }
-} */
-
-/* .cases {
-  display: flex;
-  flex-direction: column;
-  gap: var(--g80);
-  padding: 0 var(--lr);
-}
-
-.case {
-  position: sticky;
-}
-
-.case-c {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--g20);
-  height: 100%;
-  overflow: hidden;
-}
-
-.case-d {
-  display: flex;
-  flex-direction: column;
-  gap: var(--g40);
-  flex: 1;
-  min-height: 0;
-
-  h4 {
-    color: var(--text-g-tr);
-  }
-}
-
-.case-h {
-  display: flex;
-  flex-direction: column;
-  gap: var(--g10);
-}
-
-.case-img {
-  grid-column: 2 / 4;
-  aspect-ratio: 16 / 9;
-  display: flex;
-  justify-content: center;
-  padding: var(--g80);
-  padding-bottom: 0;
-  background: #e3e3e3;
-  border-radius: var(--g25);
-  corner-shape: var(--s);
-
-  img {
-    height: 100%;
-    width: auto;
-  }
-} */
 
 .marquee {
   padding: var(--tb) var(--lr);
