@@ -1,3 +1,7 @@
+@import 'common.css';
+@import 'media.css';
+@import 'test.css';
+
 @font-face {
   font-family: 'Vela Sans';
   src: url('/static/fonts/VelaSans-Regular.woff2') format('woff2');
@@ -198,5 +202,3 @@ h4 {
   line-height: 1.2;
   font-weight: 500;
 }
-
-@media (max-width: 860px) {}
