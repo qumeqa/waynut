@@ -162,7 +162,8 @@
           </div>
         </div>
       </div>
-
+    </div>
+    <div class="main-c2">
       <div class="adv">
         <div class="block-h">
           <h4>Преимущества</h4>
@@ -186,9 +187,10 @@
             <p>Начинаем работу через 1-2 дня</p>
           </div>
         </div>
-        <img class="gr" src="{{ url_for('static', filename='img/gr.svg') }}" alt="">
       </div>
-
+      <img class="gr r" src="{{ url_for('static', filename='img/gr.svg') }}">
+    </div>
+    <div class="main-c">
       <div class="res" id="results">
         <div class="res-h">
           <h1>Предлагаем решения<br>приносящие результат</h1>
@@ -351,7 +353,8 @@
           </div>
         </div>
       </div>
-
+    </div>
+    <div class="main-c2">
       <div class="rev">
         <div class="block-h">
           <h4>Отзывы</h4>
@@ -366,10 +369,10 @@
                   <p>
                     Пользуюсь услугами компании уже больше года. Всегда высокое качество обслуживания, внимательные
                     менеджеры, которые помогают с выбором. Цены адекватные, а главное — все обещания выполняются в срок.
-                    Особенно радует программа лояльности для постоянных клиентов. Рекомендую всем знакомым!
+                    <br><br>Особенно радует программа лояльности для постоянных клиентов. Рекомендую всем знакомым!
                   </p>
                   <div class="review-header">
-                    <div class="avatar">АС</div>
+                    <img class="avatar" src="{{ url_for('static', filename='img/avatars/1.jpg') }}" alt="Аватар">
                     <div class="review-info">
                       <h4>Анна Смирнова</h4>
                       <p>Директор Like Me</p>
@@ -383,10 +386,10 @@
                   <p>
                     Пользуюсь услугами компании уже больше года. Всегда высокое качество обслуживания, внимательные
                     менеджеры, которые помогают с выбором. Цены адекватные, а главное — все обещания выполняются в срок.
-                    Особенно радует программа лояльности для постоянных клиентов. Рекомендую всем знакомым!
+                    <br><br>Особенно радует программа лояльности для постоянных клиентов. Рекомендую всем знакомым!
                   </p>
                   <div class="review-header">
-                    <div class="avatar">АС</div>
+                    <img class="avatar" src="{{ url_for('static', filename='img/avatars/1.jpg') }}" alt="Аватар">
                     <div class="review-info">
                       <h4>Анна Смирнова</h4>
                       <p>Директор Like Me</p>
@@ -400,10 +403,10 @@
                   <p>
                     Пользуюсь услугами компании уже больше года. Всегда высокое качество обслуживания, внимательные
                     менеджеры, которые помогают с выбором. Цены адекватные, а главное — все обещания выполняются в срок.
-                    Особенно радует программа лояльности для постоянных клиентов. Рекомендую всем знакомым!
+                    <br><br>Особенно радует программа лояльности для постоянных клиентов. Рекомендую всем знакомым!
                   </p>
                   <div class="review-header">
-                    <div class="avatar">АС</div>
+                    <img class="avatar" src="{{ url_for('static', filename='img/avatars/1.jpg') }}" alt="Аватар">
                     <div class="review-info">
                       <h4>Анна Смирнова</h4>
                       <p>Директор Like Me</p>
@@ -417,10 +420,10 @@
                   <p>
                     Пользуюсь услугами компании уже больше года. Всегда высокое качество обслуживания, внимательные
                     менеджеры, которые помогают с выбором. Цены адекватные, а главное — все обещания выполняются в срок.
-                    Особенно радует программа лояльности для постоянных клиентов. Рекомендую всем знакомым!
+                    <br><br>Особенно радует программа лояльности для постоянных клиентов. Рекомендую всем знакомым!
                   </p>
                   <div class="review-header">
-                    <div class="avatar">АС</div>
+                    <img class="avatar" src="{{ url_for('static', filename='img/avatars/1.jpg') }}" alt="Аватар">
                     <div class="review-info">
                       <h4>Анна Смирнова</h4>
                       <p>Директор Like Me</p>
@@ -428,15 +431,25 @@
                   </div>
                 </div>
               </div>
-
             </div>
-
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+          </div>
+          <div class="swiper-navigation">
+            <div class="swiper-button-prev">
+              <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.41431 0.707031L1.41431 8.70703L9.41431 16.707" stroke="var(--bg-d)" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="swiper-button-next">
+              <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.41431 0.707031L1.41431 8.70703L9.41431 16.707" stroke="var(--bg-d)" stroke-width="2" />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
+      <img class="gr l" src="{{ url_for('static', filename='img/gr.svg') }}">
+    </div>
+    <div class="main-c">
 
       <!-- <div class="faq">
       <div class="accordion">
@@ -623,10 +636,6 @@
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
       },
       breakpoints: {
         320: {

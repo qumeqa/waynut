@@ -1,19 +1,17 @@
 .toast {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-  min-width: 200px;
-  margin-bottom: 10px;
-  padding: 15px 20px;
-  color: #fff;
-  background: #4caf50;
-  /* зелёный для успеха */
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  top: var(--g20);
+  left: var(--lr);
+  z-index: 1000;
+  min-width: 12.5rem;
+  padding: var(--g20) var(--g25);
+  color: var(--text-l);
+  background: var(--bg-a);
+  border-radius: var(--g25);
+  corner-shape: var(--s);
   opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(-1.25rem);
+  transition: var(--tr);
 }
 
 .toast.show {
@@ -216,8 +214,16 @@ main {
 }
 
 .main-c {
+  position: relative;
   max-width: 120rem;
   margin: 0 auto;
+}
+
+.main-c2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hdn {
@@ -281,7 +287,7 @@ main {
   }
 
   &.btn-p {
-    padding: 23px 30px 24px;
+    padding: 1.4375rem 1.875rem 1.5rem;
     background: var(--btn-p-d);
     color: var(--text-d);
     justify-content: center;
@@ -508,16 +514,24 @@ main {
 
 .gr {
   position: absolute;
-  right: 0;
-  top: 50%;
   transform: translateY(-40%);
   height: 120vh;
+  top: 50%;
   opacity: 0.75;
+
+  &.r {
+    right: -60vh;
+  }
+
+  &.l {
+    left: -60vh;
+  }
 }
 
 .res {
   position: relative;
   padding: 0 var(--lr);
+  max-width: 120rem;
 }
 
 .res-h {
@@ -677,16 +691,18 @@ main {
   padding: 0 var(--lr);
   display: flex;
   flex-direction: column;
+  max-width: 120rem;
+  width: 100%;
   gap: var(--g80);
 }
 
 .rev-c {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--g5);
   border-radius: var(--g25);
   corner-shape: var(--s);
-  overflow: hidden;
 }
 
 footer {

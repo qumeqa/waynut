@@ -1,6 +1,9 @@
 .swiper {
   width: 100%;
   padding: 20px 0 60px;
+  border-radius: var(--g25);
+  corner-shape: var(--s);
+  overflow: hidden;
 }
 
 .swiper-slide {
@@ -20,22 +23,19 @@
 
 .review-header {
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: var(--g15);
+
+  p {
+    color: var(--text-g);
+  }
 }
 
 .avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  font-size: 18px;
-  flex-shrink: 0;
+  width: var(--g80);
+  height: auto;
+  border-radius: var(--g10);
+  corner-shape: var(--s);
 }
 
 .review-text {
@@ -44,18 +44,51 @@
   flex-grow: 1;
 }
 
+.swiper-navigation {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  bottom: -64px;
+  left: 0;
+}
+
 .swiper-button-next,
 .swiper-button-prev {
-  color: #667eea;
-  width: 44px;
-  height: 44px;
-  background: white;
+  width: 72px !important;
+  height: 72px !important;
+  background: var(--bg-l);
   border-radius: 50%;
+  margin: 0;
+  flex-shrink: 0;
+
+  svg {
+    height: 18px !important;
+    width: auto;
+  }
+}
+
+.swiper-button-prev {
+  left: 0 !important;
+}
+
+.swiper-button-next {
+  left: 54px !important;
 }
 
 .swiper-button-next:after,
 .swiper-button-prev:after {
-  font-size: 20px;
+  content: '';
+  display: none;
+}
+
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  width: 11px;
+  height: 18px;
+}
+
+.swiper-button-next svg {
+  transform: rotate(180deg);
 }
 
 .swiper-pagination-bullet {
@@ -87,7 +120,6 @@
     padding: 20px;
   }
 }
-
 
 
 
