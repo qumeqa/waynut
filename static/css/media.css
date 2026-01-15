@@ -200,13 +200,14 @@
     display: flex;
     flex-direction: column;
     gap: var(--g20);
-    padding: var(--g40) 0;
+    padding: var(--g40);
     background: var(--bg-l);
     height: max-content;
     transition: var(--tr);
     border-radius: var(--g5);
     corner-shape: var(--s);
     overflow: hidden;
+    pointer-events: none;
 
     .num path {
       transition: var(--tr-m);
@@ -225,8 +226,8 @@
 
   .num {
     position: initial;
-    height: 2rem;
-    width: auto;
+    height: 1.5rem;
+    width: max-content;
   }
 
   .hiw-d {
@@ -235,6 +236,11 @@
     gap: var(--g10);
     padding-right: var(--g40);
     grid-column: 2 / 4;
+  }
+
+  .review-card {
+    height: 22rem;
+    gap: var(--g20);
   }
 
   .swiper-navigation {
@@ -260,7 +266,7 @@
   }
 
   .footer-c {
-    padding: calc(var(--g40) + var(--g10)) var(--lr);
+    padding: var(--g40) var(--lr);
     gap: var(--g30);
   }
 

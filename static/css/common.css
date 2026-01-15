@@ -60,6 +60,11 @@ header.show {
   }
 }
 
+#cases,
+#reviews {
+  scroll-margin-top: 16vh;
+}
+
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -728,7 +733,7 @@ footer {
   grid-template-columns: repeat(3, 1fr);
   gap: var(--g20);
   color: var(--text-l);
-  padding: var(--g80) var(--lr);
+  padding: var(--g40) var(--lr);
 }
 
 .footer-g {
