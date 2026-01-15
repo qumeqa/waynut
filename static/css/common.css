@@ -224,6 +224,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .hdn {
@@ -267,7 +268,7 @@ main {
   align-items: center;
   width: max-content;
   gap: var(--g10);
-  padding: 1.0625rem 1.875rem 1.125rem;
+  padding: 1rem 2rem;
   color: var(--text-l);
   background: var(--btn-d-d);
   transition: var(--tr);
@@ -287,7 +288,7 @@ main {
   }
 
   &.btn-p {
-    padding: 1.4375rem 1.875rem 1.5rem;
+    padding: 1.5rem 1.75rem;
     background: var(--btn-p-d);
     color: var(--text-d);
     justify-content: center;
@@ -463,6 +464,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--g80);
+  padding-bottom: var(--tb);
 }
 
 .adv-c {
@@ -514,17 +516,20 @@ main {
 
 .gr {
   position: absolute;
-  transform: translateY(-40%);
-  height: 120vh;
+  transform: translateY(-50%);
+  height: 100%;
   top: 50%;
   opacity: 0.75;
+  pointer-events: none;
 
   &.r {
-    right: -60vh;
+    right: 0;
+    transform: translate(50%, -50%);
   }
 
   &.l {
-    left: -60vh;
+    left: 0;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -543,7 +548,7 @@ main {
   text-align: center;
   padding-top: calc((100vh - 9.0625rem) / 2);
   padding-bottom: var(--g15);
-  margin-top: calc((-1 * (100vh - 9.0625rem) / 2) + var(--tb));
+  margin-top: calc(-1 * (100vh - 9.0625rem) / 2);
   transition: var(--tr-f);
 
   &.fixed {
@@ -694,6 +699,7 @@ main {
   max-width: 120rem;
   width: 100%;
   gap: var(--g80);
+  padding-bottom: var(--tb);
 }
 
 .rev-c {
@@ -744,4 +750,8 @@ footer {
 .fake-footer {
   position: relative;
   z-index: -10;
+}
+
+.ph-s {
+  display: none;
 }

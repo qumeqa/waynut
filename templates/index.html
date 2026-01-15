@@ -20,6 +20,9 @@
   <!-- <link rel="preload" href="img/2.webp" as="image"> -->
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/media.css') }}">
 
   <link rel="icon" type="image/png" href="img/icon.png">
 
@@ -44,6 +47,11 @@
     </div>
   </header>
 
+  <a class="btn menu-btn ph-s" href="#" id="menu-btn">
+    <div class="circle"></div>
+    Обсудить проект
+  </a>
+
   <div class="menu-overlay" id="menu-overlay">
     <div class="contact-c menu">
       <div class="close close-btn" id="close-btn">
@@ -54,11 +62,14 @@
         </svg>
       </div>
       <div class=" v-c">
-        <h2 class="l">
+        <h2 class="l ph-h">
           Давайте обсудим <br />
           ваш проект
         </h2>
-        <p class="gd">
+        <h2 class="l ph-s">
+          Напишите нам
+        </h2>
+        <p class="gd ph-h">
           Отправляя заявку, вы соглашаетесь с
           <a class="g" style="display: inline;" href="docs/privacy_policy.docx" target="_blank">
             политикой конфиденциальности</a>
@@ -87,6 +98,11 @@
 
           <div class="file-list"></div>
         </div>
+        <p class="gd ph-s">
+          Отправляя заявку, вы соглашаетесь с
+          <a class="g" style="display: inline;" href="docs/privacy_policy.docx" target="_blank">
+            политикой конфиденциальности</a>
+        </p>
         <button type="submit" class="btn btn-p">Отправить заявку</button>
       </form>
     </div>
@@ -113,20 +129,21 @@
             <path
               d="M128.849 11.2097V23.564H134.476V27.4375H128.523C126.362 27.4375 124.609 25.6842 124.609 23.564V11.2097H128.849L128.849 7.17312H124.609V0.122331H128.849V7.17312H134.476V11.2097H128.849Z" />
           </svg>
-          <nav class="links">
+          <nav class="links ph-h">
             <ul>
               <li><a href="#cases" class="link">Проекты</a></li>
               <li><a href="#results" class="link">Результаты</a></li>
               <li><a href="#reviews" class="link">Отзывы</a></li>
             </ul>
           </nav>
-          <a class="btn menu-btn" href="#" id="menu-btn">
+          <a class="btn menu-btn ph-h" href="#" id="menu-btn">
             <div class="circle"></div>
             Обсудить проект
           </a>
         </div>
-        <h1 class="gsap-2">Разработка и дизайн<br>цифровых продуктов</h1>
-        <div class="hdn-d">
+        <h1 class="gsap-2 ph-h">Разработка и дизайн<br>цифровых продуктов</h1>
+        <h1 class="gsap-2 ph-s">Разработка<br>и дизайн<br>цифровых<br>продуктов</h1>
+        <div class="hdn-d ph-h">
           <p class="g gsap-3">Проектируем интерфейсы, делаем дизайн и разработку. В основе наших
             проектов лежат идеи,
             создаваемые на стыке стратегии, креатива и технологий
@@ -167,7 +184,8 @@
       <div class="adv">
         <div class="block-h">
           <h4>Преимущества</h4>
-          <h2>Мы не просто делаем сайты, а являемся стратегическим партнером для бизнеса</h2>
+          <h2 class="ph-h">Мы не просто делаем сайты, а являемся стратегическим партнером для бизнеса</h2>
+          <h2 class="ph-s">Партнеры в развитии вашего бизнеса</h2>
         </div>
         <div class="adv-c gsap-5">
           <div class="adv-card b">
@@ -191,7 +209,7 @@
       <img class="gr r" src="{{ url_for('static', filename='img/gr.svg') }}">
     </div>
     <div class="main-c">
-      <div class="res" id="results">
+      <div class="res ph-h" id="results">
         <div class="res-h">
           <h1>Предлагаем решения<br>приносящие результат</h1>
         </div>
@@ -251,14 +269,77 @@
         <div class="res-gr"></div>
       </div>
 
+      <div class="res-ph ph-s">
+        <div class="block-h">
+          <h4>Результаты</h4>
+          <h2>Предлагаем решения приносящие результат</h2>
+        </div>
+        <div class="res-c-ph">
+          <div class="res-card-ph">
+            <div class="res-d">
+              <h3>Название</h3>
+              <p class="gd">Описание описание описание описание описание описание описание описание описание описание
+                описание описание описание описание описание описание описание</p>
+            </div>
+            <div class="res-r">
+              <div class="res-rc">
+                <h1 class="r">+150%</h1>
+                <p>Новых<br>клиентов</p>
+              </div>
+              <div class="res-rc">
+                <h1 class="r">+150%</h1>
+                <p>Новых<br>клиентов</p>
+              </div>
+            </div>
+          </div>
+          <div class="res-card-ph">
+            <div class="res-d">
+              <h3>Название</h3>
+              <p class="gd">Описание описание описание описание описание описание описание описание описание описание
+                описание описание описание описание описание описание описание</p>
+            </div>
+            <div class="res-r">
+              <div class="res-rc">
+                <h1 class="r">+150%</h1>
+                <p>Новых<br>клиентов</p>
+              </div>
+              <div class="res-rc">
+                <h1 class="r">+150%</h1>
+                <p>Новых<br>клиентов</p>
+              </div>
+            </div>
+          </div>
+          <div class="res-card-ph">
+            <div class="res-d">
+              <h3>Название</h3>
+              <p class="gd">Описание описание описание описание описание описание описание описание описание описание
+                описание описание описание описание описание описание описание</p>
+            </div>
+            <div class="res-r">
+              <div class="res-rc">
+                <h1 class="r">+150%</h1>
+                <p>Новых<br>клиентов</p>
+              </div>
+              <div class="res-rc">
+                <h1 class="r">+150%</h1>
+                <p>Новых<br>клиентов</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="contact">
         <div class="contact-c">
-          <div class="v-c">
-            <h2 class="l">
-              Давайте обсудим<br />
+          <div class=" v-c">
+            <h2 class="l ph-h">
+              Давайте обсудим <br />
               ваш проект
             </h2>
-            <p class="gd">
+            <h2 class="l ph-s">
+              Напишите нам
+            </h2>
+            <p class="gd ph-h">
               Отправляя заявку, вы соглашаетесь с
               <a class="g" style="display: inline;" href="docs/privacy_policy.docx" target="_blank">
                 политикой конфиденциальности</a>
@@ -286,8 +367,14 @@
                 </span>
                 <input type="file" multiple style="display: none" />
               </label>
+
               <div class="file-list"></div>
             </div>
+            <p class="gd ph-s">
+              Отправляя заявку, вы соглашаетесь с
+              <a class="g" style="display: inline;" href="docs/privacy_policy.docx" target="_blank">
+                политикой конфиденциальности</a>
+            </p>
             <button type="submit" class="btn btn-p">Отправить заявку</button>
           </form>
         </div>
@@ -296,7 +383,8 @@
       <div class="hiw">
         <div class="block-h">
           <h4>Как мы работаем</h4>
-          <h2>Шаг за шагом мы создаем продукты, которые работают на цели бизнеса</h2>
+          <h2 class="ph-h">Шаг за шагом мы создаем продукты, которые работают на цели бизнеса</h2>
+          <h2 class="ph-s">От анализа до запуска продукта</h2>
         </div>
         <div class="hiw-c">
           <div class="hiw-card">
@@ -358,7 +446,8 @@
       <div class="rev">
         <div class="block-h">
           <h4>Отзывы</h4>
-          <h2>Узнайте истории долгосрочного роста, как мы помогли достичь целей</h2>
+          <h2 class="ph-h">Узнайте истории долгосрочного роста, как мы помогли достичь целей</h2>
+          <h2 class="ph-s">Истории роста наших клиентов</h2>
         </div>
         <div class="rev-c">
           <div class="swiper reviewSwiper">
@@ -559,8 +648,6 @@
         </div>
       </div> -->
     </div>
-
-    <div style="height: 15rem"></div>
     </div>
   </main>
 
@@ -659,17 +746,6 @@
           centeredSlides: false,
         }
       }
-    });
-  </script>
-
-  <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const lenis = new Lenis({
-        autoRaf: true,
-        lerp: 0.08,
-        smoothWheel: true,
-      });
     });
   </script>
 

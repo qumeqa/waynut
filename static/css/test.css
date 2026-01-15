@@ -46,45 +46,31 @@
 
 .swiper-navigation {
   display: flex;
-  gap: 10px;
+  gap: var(--g15);
   position: absolute;
-  bottom: -64px;
+  bottom: calc(-1 * 4.5rem - 1.25rem);
   left: 0;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  width: 72px !important;
-  height: 72px !important;
+  position: initial !important;
+  width: 4.5rem !important;
+  height: 4.5rem !important;
+  box-sizing: border-box !important;
   background: var(--bg-l);
   border-radius: 50%;
-  margin: 0;
-  flex-shrink: 0;
 
   svg {
-    height: 18px !important;
+    height: 1.125rem !important;
     width: auto;
   }
-}
-
-.swiper-button-prev {
-  left: 0 !important;
-}
-
-.swiper-button-next {
-  left: 54px !important;
 }
 
 .swiper-button-next:after,
 .swiper-button-prev:after {
   content: '';
   display: none;
-}
-
-.swiper-button-prev svg,
-.swiper-button-next svg {
-  width: 11px;
-  height: 18px;
 }
 
 .swiper-button-next svg {
@@ -110,14 +96,6 @@
 @media (max-width: 640px) {
   .swiper-slide {
     width: 85%;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  .review-card {
-    padding: 20px;
   }
 }
 
