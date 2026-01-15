@@ -46,6 +46,31 @@ document.addEventListener('keydown', (e) => {
 
 
 
+const menuBtn = document.querySelector('.menu-btn.ph-s');
+const main = document.querySelector('main');
+
+if (menuBtn && main) {
+  const gap = 20;
+  menuBtn.style.transition = 'none';
+
+  window.addEventListener('scroll', () => {
+    const mainRect = main.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    // Если низ main достиг низа экрана - переключаем на absolute
+    if (mainRect.bottom <= viewportHeight) {
+      menuBtn.style.position = 'absolute';
+      menuBtn.style.bottom = `${gap}px`;
+    } else {
+      // Скроллим выше - возвращаем fixed
+      menuBtn.style.position = 'fixed';
+      menuBtn.style.bottom = `${gap}px`;
+    }
+  }, { passive: true });
+}
+
+
+
 const textareas = document.querySelectorAll('textarea');
 const maxHeight = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5 * 10;
 

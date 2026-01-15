@@ -18,8 +18,8 @@
     --g30: 1.5rem;
     --g40: 1.75rem;
     --g60: 3rem;
-    --g80: 2.5rem;
-    --g120: 7.5rem;
+    --g80: 3.5rem;
+    --g120: 5rem;
     --g240: 15rem;
 
     --fs: 1rem;
@@ -64,6 +64,7 @@
   }
 
   main {
+    position: relative;
     border-bottom-left-radius: calc(var(--g20) * 2);
     border-bottom-right-radius: calc(var(--g20) * 2);
   }
@@ -179,6 +180,75 @@
     }
   }
 
+  .hiw {
+    padding: var(--tb) var(--lr);
+    display: flex;
+    flex-direction: column;
+    gap: var(--g80);
+  }
+
+  .hiw-c {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g5);
+    border-radius: var(--g25);
+    corner-shape: var(--s);
+    overflow: hidden;
+  }
+
+  .hiw-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g20);
+    padding: var(--g40) 0;
+    background: var(--bg-l);
+    height: max-content;
+    transition: var(--tr);
+    border-radius: var(--g5);
+    corner-shape: var(--s);
+    overflow: hidden;
+
+    .num path {
+      transition: var(--tr-m);
+    }
+
+    p {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .num path {
+      fill: var(--bg-d);
+    }
+
+  }
+
+  .num {
+    position: initial;
+    height: 2rem;
+    width: auto;
+  }
+
+  .hiw-d {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g10);
+    padding-right: var(--g40);
+    grid-column: 2 / 4;
+  }
+
+  .swiper-navigation {
+    bottom: calc(-1 * 3.5rem - 1rem);
+
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: initial !important;
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
+
   .cases,
   .block-h,
   .adv-c,
@@ -187,6 +257,11 @@
   .footer-c {
     display: flex;
     flex-direction: column;
+  }
+
+  .footer-c {
+    padding: calc(var(--g40) + var(--g10)) var(--lr);
+    gap: var(--g30);
   }
 
   .block-h {
