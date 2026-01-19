@@ -220,6 +220,57 @@ document.querySelectorAll('.text-animated').forEach(el => {
 
 
 
+// Функция анимации чисел
+function animateNumber(element, target, duration = 1500) { // Увеличил длительность
+  const isPercentage = target.includes('%');
+  const numericTarget = parseFloat(target.replace(/[~,%]/g, ''));
+  const start = numericTarget * 0.5;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Более плавная easing function (ease-out cubic -> quadratic)
+    const easeProgress = 1 - Math.pow(1 - progress, 2);
+
+    const current = start + (numericTarget - start) * easeProgress;
+    const prefix = target.startsWith('~') ? '~' : '';
+    const suffix = isPercentage ? '%' : '';
+
+    element.textContent = prefix + Math.round(current) + suffix;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+// Проверяем поддержку IntersectionObserver
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        const target = entry.target.textContent;
+        entry.target.dataset.animated = 'true';
+        animateNumber(entry.target, target);
+      }
+    });
+  }, {
+    threshold: 0.5,
+    rootMargin: '0px'
+  });
+
+  // Наблюдаем за всеми числами
+  document.querySelectorAll('.res-rc h1.r').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+
+
 function syncForms() {
   const forms = document.querySelectorAll('.contact-form');
 
