@@ -291,6 +291,10 @@
     gap: var(--g60);
   }
 
+  .adv-card img {
+    display: none;
+  }
+
   .rev {
     padding-bottom: calc(var(--tb) * 2 - var(--g120));
   }
