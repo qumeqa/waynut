@@ -41,7 +41,7 @@
 
   --text-d: #161616;
   --text-l: #fff;
-  --text-g: #808080;
+  --text-g: #909090;
   --text-gd: #464646;
   --text-r: #60D884;
 
@@ -53,7 +53,7 @@
   --btn-d-d: #161616;
   --btn-d-h: #fff;
 
-  --btn-dh-g: #f0f0f0;
+  --btn-dh-g: #FFA54B;
 
   --btn-l-d: #fff;
   --btn-l-h: #f0f0f0;
@@ -75,6 +75,7 @@
   --g25: 1.5625rem;
   --g30: 1.875rem;
   --g40: 2.5rem;
+  --g50: 3.125rem;
   --g60: 3.75rem;
   --g80: 5rem;
   --g120: 7.5rem;

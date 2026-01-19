@@ -24,9 +24,23 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/media.css') }}">
 
-  <link rel="icon" type="image/png" href="img/icon.png">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106317476', 'ym');
+
+    ym(106317476, 'init', { ssr: true, webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/106317476" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
 </head>
 
 <body>
@@ -36,14 +50,12 @@
     <div class="header-c">
       <nav class="links">
         <ul>
-          <li><a href="#cases" class="link">Проекты</a></li>
-          <li><a href="#results" class="link">Результаты</a></li>
-          <li><a href="#reviews" class="link">Отзывы</a></li>
+          <li><a href="#cases" class="link text-animated">Проекты</a></li>
+          <li><a href="#results" class="link text-animated">Результаты</a></li>
+          <li><a href="#reviews" class="link text-animated">Отзывы</a></li>
         </ul>
       </nav>
-      <a class="btn btn-dh-g menu-btn" href="#" id="menu-btn">
-        Обсудить проект
-      </a>
+      <a class="btn btn-dh-g menu-btn text-animated" href="#" id="menu-btn">Обсудить проект</a>
     </div>
   </header>
 
@@ -57,9 +69,7 @@
         </svg>
       </div>
       <div class=" v-c">
-        <h2 class="l ph-h">
-          Давайте обсудим <br />
-          ваш проект
+        <h2 class="l ph-h">Давайте обсудим<br>ваш проект
         </h2>
         <h2 class="l ph-s">
           Напишите нам
@@ -98,7 +108,7 @@
           <a class="g" style="display: inline;" href="docs/privacy_policy.docx" target="_blank">
             политикой конфиденциальности</a>
         </p>
-        <button type="submit" class="btn btn-p">Отправить заявку</button>
+        <button type="submit" class="btn btn-p text-animated">Отправить заявку</button>
       </form>
     </div>
   </div>
@@ -126,14 +136,13 @@
           </svg>
           <nav class="links ph-h">
             <ul>
-              <li><a href="#cases" class="link">Проекты</a></li>
-              <li><a href="#results" class="link">Результаты</a></li>
-              <li><a href="#reviews" class="link">Отзывы</a></li>
+              <li><a href="#cases" class="link text-animated">Проекты</a></li>
+              <li><a href="#results" class="link text-animated">Результаты</a></li>
+              <li><a href="#reviews" class="link text-animated">Отзывы</a></li>
             </ul>
           </nav>
           <a class="btn menu-btn ph-h" href="#" id="menu-btn">
-            <div class="circle"></div>
-            Обсудить проект
+            <div class="circle"></div><span class="text-animated">Обсудить проект</span>
           </a>
         </div>
         <h1 class="gsap-2 ph-h">Разработка и дизайн<br>цифровых продуктов</h1>
@@ -147,14 +156,22 @@
       </div>
 
       <div class="cases gsap-4" id="cases">
-        <div class="case wide" data-cover="{{ url_for('static', filename='img/cases/1/1.png') }}" data-name="VIVALUME"
-          data-description="Сайт для фото-журнала" data-href="#">
+        <div class="case wide" data-name="VIVALUME"
+          data-cover-desktop="{{ url_for('static', filename='img/cases/1/1-d.png') }}"
+          data-cover-mobile="{{ url_for('static', filename='img/cases/1/1-m.png') }}"
+          data-description="Сайт для фото-журнала" data-href="https://vivalume.ru">
         </div>
-        <div class="case left" data-cover="{{ url_for('static', filename='img/cases/2/1.png') }}" data-name="Like Me"
-          data-description="Сайт для салона красоты" data-href="#">
+      
+        <div class="case left" data-name="Like Me"
+          data-cover-desktop="{{ url_for('static', filename='img/cases/2/1-d.png') }}"
+          data-cover-mobile="{{ url_for('static', filename='img/cases/2/1-m.png') }}"
+          data-description="Сайт для салона красоты" data-href="https://likemebeauty.ru">
         </div>
-        <div class="case right" data-cover="{{ url_for('static', filename='img/cases/3/1.png') }}" data-name="Бодрит!"
-          data-description="Дизайн приложения для сети кофеен" data-href="#">
+      
+        <div class="case right" data-name="Бодрит!"
+          data-cover-desktop="{{ url_for('static', filename='img/cases/3/1-d.png') }}"
+          data-cover-mobile="{{ url_for('static', filename='img/cases/3/1-m.png') }}"
+          data-description="Дизайн приложения для сети кофеен" data-href="https://t.me/Waynut_Dev/28">
         </div>
       </div>
 
@@ -186,18 +203,22 @@
           <div class="adv-card b">
             <h4>Честные цены</h4>
             <p>Работаем без посредников и агентских наценок</p>
+            <img class="adv-img-b" src="{{ url_for('static', filename='img/adv/1.png') }}" alt="Иллюстрация">
           </div>
           <div class="adv-card w">
             <h4>Собственный дизайн</h4>
             <p>Создаем уникальный стиль под ваш бренд, без шаблонов</p>
+            <img class="adv-img-m" src="{{ url_for('static', filename='img/adv/2.png') }}" alt="Иллюстрация">
           </div>
           <div class="adv-card">
             <h4>Прямое общение</h4>
-            <p>Обсуждайте проект напрямую с нашими разработчиками</p>
+            <p>Обсуждайте проект напрямую с нашей командой</p>
+            <img class="adv-img-s" src="{{ url_for('static', filename='img/adv/3.png') }}" alt="Иллюстрация">
           </div>
           <div class="adv-card">
             <h4>Быстрый старт</h4>
-            <p>Начинаем работу через 1-2 дня, первый результат через 7 дней</p>
+            <p>Первые результаты через неделю</p>
+            <img class="adv-img-s" src="{{ url_for('static', filename='img/adv/4.png') }}" alt="Иллюстрация">
           </div>
         </div>
       </div>
@@ -212,50 +233,34 @@
           <div class="res-card left">
             <div class="res-d">
               <h3>Like Me</h3>
-              <p class="gd">Сайт для салона красоты с формой для записи</p>
+              <p class="gd">Одностраничный сайт с онлайн-записью, каталогом услуг, отзывами клиентов и интеграцией 2ГИС. Адаптивный дизайн,
+              оптимизация производительности, SEO и аналитика</p>
             </div>
             <div class="res-r">
               <div class="res-rc">
-                <h1 class="r">~300</h1>
+                <h1 class="r">~600</h1>
                 <p>Посетителей<br>в месяц</p>
               </div>
               <div class="res-rc">
-                <h1 class="r">~70</h1>
+                <h1 class="r">~140</h1>
                 <p>Переходов<br>в запись</p>
               </div>
             </div>
           </div>
           <div class="res-card right">
             <div class="res-d">
-              <h3>Название</h3>
-              <p class="gd">Описание описание описание описание описание описание описание описание описание описание
-                описание описание описание описание описание описание описание</p>
+              <h3>VIVALUME</h3>
+              <p class="gd">Сайт-витрина для эксклюзивного проекта персональных глянцевых журналов. Интерактивные 3D-превью обложек, цифровой reader
+              с перелистыванием страниц, адаптив и темная/светлая тема</p>
             </div>
             <div class="res-r">
               <div class="res-rc">
-                <h1 class="r">+150%</h1>
-                <p>Новых<br>клиентов</p>
+                <h1 class="r">~120</h1>
+                <p>Посетителей<br>в месяц</p>
               </div>
               <div class="res-rc">
-                <h1 class="r">+150%</h1>
-                <p>Новых<br>клиентов</p>
-              </div>
-            </div>
-          </div>
-          <div class="res-card left">
-            <div class="res-d">
-              <h3>Название</h3>
-              <p class="gd">Описание описание описание описание описание описание описание описание описание описание
-                описание описание описание описание описание описание описание</p>
-            </div>
-            <div class="res-r">
-              <div class="res-rc">
-                <h1 class="r">+150%</h1>
-                <p>Новых<br>клиентов</p>
-              </div>
-              <div class="res-rc">
-                <h1 class="r">+150%</h1>
-                <p>Новых<br>клиентов</p>
+                <h1 class="r">~70%</h1>
+                <p>Переходов<br>с компьютеров</p>
               </div>
             </div>
           </div>
@@ -271,52 +276,35 @@
         <div class="res-c-ph">
           <div class="res-card-ph">
             <div class="res-d">
-              <h3>Название</h3>
-              <p class="gd">Описание описание описание описание описание описание описание описание описание описание
-                описание описание описание описание описание описание описание</p>
+              <h3>Like Me</h3>
+              <p class="gd">Одностраничный сайт с онлайн-записью, каталогом услуг, отзывами клиентов и интеграцией 2ГИС. Адаптивный дизайн,
+              оптимизация производительности, SEO и аналитика</p>
             </div>
             <div class="res-r">
               <div class="res-rc">
-                <h1 class="r">+150%</h1>
-                <p>Новых<br>клиентов</p>
+                <h1 class="r">~600</h1>
+                <p>Посетителей<br>в месяц</p>
               </div>
               <div class="res-rc">
-                <h1 class="r">+150%</h1>
-                <p>Новых<br>клиентов</p>
+                <h1 class="r">~140</h1>
+                <p>Переходов<br>в запись</p>
               </div>
             </div>
           </div>
           <div class="res-card-ph">
             <div class="res-d">
-              <h3>Название</h3>
-              <p class="gd">Описание описание описание описание описание описание описание описание описание описание
-                описание описание описание описание описание описание описание</p>
+              <h3>VIVALUME</h3>
+              <p class="gd">Сайт-витрина для эксклюзивного проекта персональных глянцевых журналов. Интерактивные 3D-превью обложек,
+                цифровой reader с перелистыванием страниц, адаптив и темная/светлая тема</p>
             </div>
             <div class="res-r">
               <div class="res-rc">
-                <h1 class="r">+150%</h1>
-                <p>Новых<br>клиентов</p>
+                <h1 class="r">~120</h1>
+                <p>Посетителей<br>в месяц</p>
               </div>
               <div class="res-rc">
-                <h1 class="r">+150%</h1>
-                <p>Новых<br>клиентов</p>
-              </div>
-            </div>
-          </div>
-          <div class="res-card-ph">
-            <div class="res-d">
-              <h3>Название</h3>
-              <p class="gd">Описание описание описание описание описание описание описание описание описание описание
-                описание описание описание описание описание описание описание</p>
-            </div>
-            <div class="res-r">
-              <div class="res-rc">
-                <h1 class="r">+150%</h1>
-                <p>Новых<br>клиентов</p>
-              </div>
-              <div class="res-rc">
-                <h1 class="r">+150%</h1>
-                <p>Новых<br>клиентов</p>
+                <h1 class="r">~70%</h1>
+                <p>Переходов<br>с компьютеров</p>
               </div>
             </div>
           </div>
@@ -369,7 +357,7 @@
               <a class="g" style="display: inline;" href="docs/privacy_policy.docx" target="_blank">
                 политикой конфиденциальности</a>
             </p>
-            <button type="submit" class="btn btn-p">Отправить заявку</button>
+            <button type="submit" class="btn btn-p text-animated">Отправить заявку</button>
           </form>
         </div>
       </div>
@@ -382,51 +370,53 @@
         </div>
         <div class="hiw-c">
           <div class="hiw-card">
-            <svg class="num" width="53" height="32" viewBox="0 0 53 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="num" width="43" height="32" viewBox="0 0 43 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
-                d="M29.8574 0C32.3679 4.78541e-05 34.4216 2.05399 34.4219 4.56445V27.3896C34.4218 29.9002 32.368 31.9541 29.8574 31.9541H4.61035C2.05416 31.954 0.000111314 29.9002 0 27.3896V4.56445H4.88477V0H29.8574ZM48.1299 0C50.6402 0.000227813 52.6941 2.0541 52.6943 4.56445V31.9541H47.8096V4.56445H38.0869V0H48.1299ZM4.88477 27.3896H29.5381V4.56445H4.88477V27.3896Z"
+                d="M19.8574 0C22.3679 4.78541e-05 24.4216 2.05399 24.4219 4.56445V27.3896C24.4218 29.9002 22.368 31.9541 19.8574 31.9541H4.61035C2.05416 31.954 0.000111314 29.9002 0 27.3896V4.56445H4.88477V0H19.8574ZM38.1299 0C40.6402 0.000227813 42.6941 2.0541 42.6943 4.56445V31.9541H37.8096V4.56445H28.0869V0H38.1299ZM4.88477 27.3896H19.5381V4.56445H4.88477V27.3896Z"
                 fill="var(--bg-gl)" />
             </svg>
             <div class="hiw-d">
               <h3>Исследование</h3>
-              <p class="gd">Проводим анализ вашей компании, изучаем нишу, конкурентов и целевую аудиторию конкурентов и
-                целевую аудиторию аудиторию конкурентов и целевую аудиторию</p>
+              <p class="gd ph-h">Проводим глубокий анализ вашей компании, изучаем нишу, конкурентов и целевую аудиторию. Собираем ключевые данные для создания эффективного решения</p>
+              <p class="gd ph-s">Проводим глубокий анализ вашей компании, изучаем нишу и конкурентов</p>
             </div>
           </div>
           <div class="hiw-card">
-            <svg class="num" width="73" height="32" viewBox="0 0 73 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="num" width="53" height="32" viewBox="0 0 53 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
-                d="M29.8574 0.0458984C32.368 0.045939 34.4218 2.09977 34.4219 4.61035V27.4355C34.4216 29.946 32.3679 32 29.8574 32H4.61035C2.05425 31.9999 0.000248364 29.946 0 27.4355V4.61035H4.88477V0.0458984H29.8574ZM67.624 18.3057H42.9707V27.4355H72.5088V32H42.9707C40.2776 31.9998 38.0869 29.8084 38.0869 27.1152V18.3057C38.0869 15.795 40.1408 13.7403 42.6514 13.7402H67.624V18.3057ZM4.88477 27.4355H29.5381V4.61035H4.88477V27.4355ZM67.624 0C70.3173 0 72.5088 2.19147 72.5088 4.88477V13.7402H67.624V4.61035H38.0869V0.0458984H67.624V0Z"
+                d="M19.8574 0.0458984C22.368 0.045939 24.4218 2.09977 24.4219 4.61035V27.4355C24.4216 29.946 22.3679 32 19.8574 32H4.61035C2.05425 31.9999 0.000248364 29.946 0 27.4355V4.61035H4.88477V0.0458984H19.8574ZM47.624 18.3057H32.9707V27.4355H52.5088V32H32.9707C30.2776 31.9998 28.0869 29.8084 28.0869 27.1152V18.3057C28.0869 15.795 30.1408 13.7403 32.6514 13.7402H47.624V18.3057ZM4.88477 27.4355H19.5381V4.61035H4.88477V27.4355ZM47.624 0C50.3173 0 52.5088 2.19147 52.5088 4.88477V13.7402H47.624V4.61035H28.0869V0.0458984H47.624V0Z"
                 fill="var(--bg-gl)" />
             </svg>
             <div class="hiw-d">
-              <h3>Дизайн интерфейса</h3>
-              <p class="gd">Разрабатываем уникальный визуальный стиль, который отражает характер вашего бренда. Создаем
-                интерфейс с фокусом на удобство пользователей</p>
+              <h3 class="ph-h">Дизайн интерфейса</h3>
+              <h3 class="ph-s">Дизайн</h3>
+              <p class="gd ph-h">Разрабатываем уникальный визуальный стиль, который отражает характер вашего бренда. Создаем продуманный интерфейс с фокусом на удобство пользователей</p>
+              <p class="gd ph-s">Создаем продуманный интерфейс с фокусом на удобство пользователей</p>
             </div>
           </div>
           <div class="hiw-card">
-            <svg class="num" width="73" height="32" viewBox="0 0 73 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="num" width="53" height="32" viewBox="0 0 53 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
-                d="M29.8574 0C32.3679 4.81141e-05 34.4216 2.05399 34.4219 4.56445V27.3896C34.4218 29.9002 32.368 31.9541 29.8574 31.9541H4.61035C2.05416 31.954 0.000111314 29.9002 0 27.3896V4.56445H4.88477V0H29.8574ZM67.624 27.3896C67.6239 29.9003 65.5702 31.9541 63.0596 31.9541H38.0869V27.3896H67.624ZM4.88477 27.3896H29.5381V4.56445H4.88477V27.3896ZM72.5088 18.2598V27.3438H67.624V18.2598H72.5088ZM67.624 18.2598H41.1904V13.6494H67.624V18.2598ZM72.5088 13.6494H67.624V4.56445H72.5088V13.6494ZM63.0596 0C65.5701 4.16124e-06 67.6238 2.05396 67.624 4.56445H38.0869V0H63.0596Z"
+                d="M19.8574 0C22.3679 4.78541e-05 24.4216 2.05399 24.4219 4.56445V27.3896C24.4218 29.9002 22.368 31.9541 19.8574 31.9541H4.61035C2.05416 31.954 0.000111314 29.9002 0 27.3896V4.56445H4.88477V0H19.8574ZM47.624 27.3896C47.6239 29.9003 45.5702 31.9541 43.0596 31.9541H28.0869V27.3896H47.624ZM4.88477 27.3896H19.5381V4.56445H4.88477V27.3896ZM52.5088 18.2598V27.3438H47.624V18.2598H52.5088ZM47.624 18.2598H31.1904V13.6494H47.624V18.2598ZM52.5088 13.6494H47.624V4.56445H52.5088V13.6494ZM43.0596 0C45.5701 4.16124e-06 47.6238 2.05396 47.624 4.56445H28.0869V0H43.0596Z"
                 fill="var(--bg-gl)" />
             </svg>
             <div class="hiw-d">
               <h3>Разработка</h3>
-              <p class="gd">Превращаем дизайн в полноценный рабочий продукт. Используем современный стек технологий для
-                создания быстрого и надежного решения</p>
+              <p class="gd ph-h">Превращаем дизайн в полноценный рабочий продукт с качественным кодом. Используем современный стек технологий для создания быстрого и надежного решения</p>
+              <p class="gd ph-s">Превращаем дизайн в полноценный рабочий продукт с качественным кодом</p>
             </div>
           </div>
           <div class="hiw-card">
-            <svg class="num" width="71" height="32" viewBox="0 0 71 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="num" width="51" height="32" viewBox="0 0 51 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
-                d="M29.8574 0C32.3679 4.16125e-05 34.4216 2.05398 34.4219 4.56445V27.3896C34.4218 29.9002 32.368 31.9541 29.8574 31.9541H4.61035C2.05417 31.954 0.000115214 29.9002 0 27.3896V4.56445H4.88477V0H29.8574ZM65.6611 18.2598C68.3544 18.2598 70.5459 20.4512 70.5459 23.1445V31.9541H65.6611V18.2598ZM4.88477 27.3896H29.5381V4.56445H4.88477V27.3896ZM42.9707 13.6494H65.6611V18.2598H42.6514C40.1409 18.2597 38.0871 16.2055 38.0869 13.6494V0H42.9707V13.6494ZM70.5918 8.76465C70.5918 11.5036 68.3544 13.6494 65.6611 13.6494L65.707 0H70.5918V8.76465Z"
+                d="M19.8574 0C22.3679 4.16125e-05 24.4216 2.05398 24.4219 4.56445V27.3896C24.4218 29.9002 22.368 31.9541 19.8574 31.9541H4.61035C2.05417 31.954 0.000115214 29.9002 0 27.3896V4.56445H4.88477V0H19.8574ZM45.6611 18.2598C48.3544 18.2598 50.5459 20.4512 50.5459 23.1445V31.9541H45.6611V18.2598ZM4.88477 27.3896H19.5381V4.56445H4.88477V27.3896ZM32.9707 13.6494H45.6611V18.2598H32.6514C30.1409 18.2597 28.0871 16.2055 28.0869 13.6494V0H32.9707V13.6494ZM50.5918 8.76465C50.5918 11.5036 48.3544 13.6494 45.6611 13.6494L45.707 0H50.5918V8.76465Z"
                 fill="var(--bg-gl)" />
             </svg>
             <div class="hiw-d">
-              <h3>Запуск и сопровождение</h3>
-              <p class="gd">Проводим тестирование, устраняем найденные недочеты и оптимизируем производительность,
-                устраняем найденные недочеты</p>
+              <h3 class="ph-h">Запуск и сопровождение</h3>
+              <p class="gd ph-h">Проводим комплексное тестирование и оптимизируем производительность системы. Устраняем найденные недочеты и обеспечиваем стабильную работу продукта</p>
+              <h3 class="ph-s">Запуск</h3>
+              <p class="gd ph-s">Устраняем найденные недочеты и обеспечиваем стабильную работу продукта</p>
             </div>
           </div>
         </div>
@@ -454,7 +444,7 @@
                     <img class="avatar" src="{{ url_for('static', filename='img/avatars/1.jpg') }}" alt="Аватар">
                     <div class="review-info">
                       <h4>Анастасия</h4>
-                      <p>Директор Like Me</p>
+                      <p>Директор «Like Me»</p>
                     </div>
                   </div>
                 </div>
@@ -471,7 +461,7 @@
                     <img class="avatar" src="{{ url_for('static', filename='img/avatars/2.jpg') }}" alt="Аватар">
                     <div class="review-info">
                       <h4>Алена</h4>
-                      <p>Создатель VIVALUME</p>
+                      <p>Создатель «VIVALUME»</p>
                     </div>
                   </div>
                 </div>
@@ -488,7 +478,7 @@
                     <img class="avatar" src="{{ url_for('static', filename='img/avatars/3.jpg') }}" alt="Аватар">
                     <div class="review-info">
                       <h4>Олег</h4>
-                      <p>Владелец сети кофеен</p>
+                      <p>Владелец сети кофеен «Бодрит!»</p>
                     </div>
                   </div>
                 </div>
@@ -633,64 +623,67 @@
   <footer class="footer">
     <div class="footer-c">
       <div class="footer-g j">
-        <svg class="logo logo-l" width="135" height="36" viewBox="0 0 135 36" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M102.234 6.48H106.434V23.6048H116.546C116.546 25.7251 114.833 27.4375 112.713 27.4375H106.067C103.947 27.4375 102.234 25.7251 102.234 23.6048V6.48ZM116.587 23.6048V6.48H120.786V23.6048H116.587Z" />
-          <path
-            d="M0 18.9974C0 21.403 1.95712 23.3602 4.36276 23.3602V0H0V18.9974ZM17.451 23.3602H13.0883V0H17.451V23.3602ZM30.5393 18.9974C30.5393 21.403 28.5822 23.3602 26.1765 23.3602V0H30.5393V18.9974ZM4.36276 27.4375V23.3602H13.0883V27.4375H4.36276ZM26.1765 27.4375V23.3602H17.451V27.4375H26.1765Z" />
-          <path
-            d="M35.845 6.48H49.3817C51.5019 6.48 53.2144 8.19248 53.2144 10.3127V23.6048H49.0148V18.8751H37.9652V23.6048H49.0148V27.4375H37.5982C35.4372 27.4375 33.7247 25.7251 33.7247 23.6048V18.8751C33.7247 16.7549 35.4372 15.0424 37.5982 15.0424H49.0148V10.3127H35.845V6.48Z" />
-          <path
-            d="M57.037 6.48H61.2366L61.2366 23.6048H71.8377V27.4375H60.9104C58.7494 27.4375 57.037 25.7251 57.037 23.6048L57.037 6.48ZM71.8377 23.6048L71.8377 6.48H76.0374L76.0374 23.6048H71.8377Z" />
-          <path
-            d="M71.8377 32.1673H60.9105V36H72.2047C74.2841 36 75.9558 34.3691 76.0374 32.2896V27.4376L71.8377 27.4375L71.8377 32.1673Z" />
-          <path
-            d="M87.933 6.48H94.5791C96.6993 6.48 98.4118 8.23326 98.4118 10.3535V27.4375H94.2121V10.3535H84.1003C84.1003 8.23326 85.8128 6.48 87.933 6.48ZM84.1003 27.4375H79.8599V10.3535H84.1003V27.4375Z" />
-          <path
-            d="M128.849 11.2097V23.564H134.476V27.4375H128.523C126.362 27.4375 124.609 25.6842 124.609 23.564V11.2097H128.849L128.849 7.17312H124.609V0.122331H128.849V7.17312H134.476V11.2097H128.849Z" />
-        </svg>
+        <a href="#">
+          <svg class="logo logo-l" width="135" height="36" viewBox="0 0 135 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M102.234 6.48H106.434V23.6048H116.546C116.546 25.7251 114.833 27.4375 112.713 27.4375H106.067C103.947 27.4375 102.234 25.7251 102.234 23.6048V6.48ZM116.587 23.6048V6.48H120.786V23.6048H116.587Z" />
+            <path
+              d="M0 18.9974C0 21.403 1.95712 23.3602 4.36276 23.3602V0H0V18.9974ZM17.451 23.3602H13.0883V0H17.451V23.3602ZM30.5393 18.9974C30.5393 21.403 28.5822 23.3602 26.1765 23.3602V0H30.5393V18.9974ZM4.36276 27.4375V23.3602H13.0883V27.4375H4.36276ZM26.1765 27.4375V23.3602H17.451V27.4375H26.1765Z" />
+            <path
+              d="M35.845 6.48H49.3817C51.5019 6.48 53.2144 8.19248 53.2144 10.3127V23.6048H49.0148V18.8751H37.9652V23.6048H49.0148V27.4375H37.5982C35.4372 27.4375 33.7247 25.7251 33.7247 23.6048V18.8751C33.7247 16.7549 35.4372 15.0424 37.5982 15.0424H49.0148V10.3127H35.845V6.48Z" />
+            <path
+              d="M57.037 6.48H61.2366L61.2366 23.6048H71.8377V27.4375H60.9104C58.7494 27.4375 57.037 25.7251 57.037 23.6048L57.037 6.48ZM71.8377 23.6048L71.8377 6.48H76.0374L76.0374 23.6048H71.8377Z" />
+            <path
+              d="M71.8377 32.1673H60.9105V36H72.2047C74.2841 36 75.9558 34.3691 76.0374 32.2896V27.4376L71.8377 27.4375L71.8377 32.1673Z" />
+            <path
+              d="M87.933 6.48H94.5791C96.6993 6.48 98.4118 8.23326 98.4118 10.3535V27.4375H94.2121V10.3535H84.1003C84.1003 8.23326 85.8128 6.48 87.933 6.48ZM84.1003 27.4375H79.8599V10.3535H84.1003V27.4375Z" />
+            <path
+              d="M128.849 11.2097V23.564H134.476V27.4375H128.523C126.362 27.4375 124.609 25.6842 124.609 23.564V11.2097H128.849L128.849 7.17312H124.609V0.122331H128.849V7.17312H134.476V11.2097H128.849Z" />
+          </svg>
+        </a>
         <p class="g ph-h">© 2025 Waynut</p>
       </div>
       <div class="footer-g">
         <div class="footer-g2">
           <p class="g">Ссылки</p>
-          <a href="#">
-            <h4>Политика конфиденциальности</h4>
+          <a class="link" href="{{ url_for('static', filename='docs/privacy_policy.pdf') }}" target="_blank">
+            <h4 class="text-animated">Политика конфиденциальности</h4>
           </a>
-          <a href="#">
-            <h4>Политика использования cookie</h4>
+          <a class="link" href="{{ url_for('static', filename='docs/cookie_policy.pdf') }}" target="_blank">
+            <h4 class="text-animated">Политика использования cookie</h4>
           </a>
         </div>
         <div class="footer-g2">
           <p class="g">Наши соцсети</p>
-          <a href="#">
-            <h4>Телеграм-канал</h4>
+          <a class="link" href="https://t.me/waynut_dev" target="_blank">
+            <h4 class="text-animated">Телеграм-канал</h4>
           </a>
-          <a href="#">
-            <h4>ВКонтакте</h4>
+          <a class="link" href="https://vk.com/waynut" target="_blank">
+            <h4 class="text-animated">ВКонтакте</h4>
           </a>
         </div>
       </div>
       <div class="footer-g">
         <div class="footer-g2">
           <p class="g">Для клиентов и партнёров</p>
-          <a href="#">
-            <h4>info@waynut.ru</h4>
+          <a class="link" href="mailto:info@waynut.ru">
+            <h4 class="text-animated">info@waynut.ru</h4>
           </a>
-          <a href="#">
-            <h4>Телеграм</h4>
+          <a class="link" href="https://t.me/Waynut_Contact" target="_blank">
+            <h4 class="text-animated">Телеграм</h4>
           </a>
         </div>
         <div class="footer-g2">
           <p class="g">Для вакансий</p>
-          <a href="#">
-            <h4>hr@waynut.ru</h4>
+          <a class="link" href="mailto:hr@waynut.ru">
+            <h4 class="text-animated">hr@waynut.ru</h4>
+          </a>
+          <a class="link" href="https://t.me/Waynut_Contact" target="_blank">
+            <h4 class="text-animated">Телеграм</h4>
           </a>
         </div>
         <p class="g ph-s">© 2025 Waynut</p>
       </div>
-    </div>
   </footer>
 
   <div class="fake-footer"></div>

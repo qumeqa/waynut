@@ -46,6 +46,11 @@
     font-weight: 500;
   }
 
+  .logo {
+    height: 1.5rem;
+    width: max-content;
+  }
+
   .btn {
     padding: 1rem 1.75rem;
 
@@ -71,7 +76,7 @@
 
   .menu-btn.ph-s {
     position: fixed;
-    z-index: 100;
+    z-index: 10;
     display: flex;
     bottom: var(--g20);
     left: 50%;
@@ -107,22 +112,27 @@
     gap: var(--g80);
   }
 
+  .case-img {
+        padding: var(--g40);
+        padding-bottom: 0;
+  }
+
   .case {
     &.wide {
       .case-img {
-        aspect-ratio: 1;
+        aspect-ratio: 5 / 4;
       }
     }
 
     &.left {
       .case-img {
-        aspect-ratio: 1;
+        aspect-ratio: 5 / 4;
       }
     }
 
     &.right {
       .case-img {
-        aspect-ratio: 1;
+        aspect-ratio: 5 / 4;
       }
     }
   }
@@ -138,7 +148,7 @@
   .res-c-ph {
     display: flex;
     flex-direction: column;
-    gap: var(--g20);
+            gap: var(--g80);
   }
 
   .res-card-ph {
@@ -199,10 +209,11 @@
   .hiw-card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: var(--g20);
     padding: var(--g40);
     background: var(--bg-l);
-    height: max-content;
+    height: 15rem;
     transition: var(--tr);
     border-radius: var(--g5);
     corner-shape: var(--s);
@@ -278,6 +289,10 @@
   .hiw,
   .rev {
     gap: var(--g60);
+  }
+
+  .rev {
+    padding-bottom: calc(var(--tb) * 2 - var(--g120));
   }
 
   .gr {

@@ -38,7 +38,7 @@ document.addEventListener('keydown', (e) => {
     menuOverlay.classList.remove('active');
   }
 
-  if (['c', 'C', 'с', 'С'].includes(e.key)) {
+  if (['m', 'ь'].includes(e.key)) {
     e.preventDefault();
     menuOverlay.classList.toggle('active');
   }
@@ -51,7 +51,7 @@ const main = document.querySelector('main');
 
 if (menuBtn && main) {
   const gap = 20;
-  menuBtn.style.transition = 'none';
+  menuBtn.style.transition = 'position 0s, bottom 0s'; // Отключаем transition только для position и bottom
 
   window.addEventListener('scroll', () => {
     const mainRect = main.getBoundingClientRect();
@@ -96,19 +96,26 @@ textareas.forEach(textarea => {
 resizeAll();
 
 
+
 document.querySelectorAll('.case').forEach(cas => {
-  const cover = cas.dataset.cover;
+  const coverDesktop = cas.dataset.coverDesktop;
+  const coverMobile = cas.dataset.coverMobile;
   const description = cas.dataset.description;
   const name = cas.dataset.name;
   const href = cas.dataset.href;
 
   cas.innerHTML = `
-    <a class="case-img" href="${href}">
-      <img src="${cover}" alt="Превью">
+    <a class="case-img" href="${href}" target="_blank">
+      <picture>
+        <source media="(max-width: 480px)" srcset="${coverMobile}">
+        <img src="${coverDesktop}" alt="Превью">
+      </picture>
     </a>
     <div class="case-d">
       <p class="g">${name}</p>
-      <h4>${description}</h4>
+      <a class="link" href="${href}" target="_blank">
+        <h4 class="text-animated">${description}</h4>
+      </a>
     </div>
   `;
 });
@@ -185,6 +192,30 @@ window.addEventListener('scroll', () => {
   } else {
     header.style.opacity = 1;
   }
+});
+
+
+
+document.querySelectorAll('.text-animated').forEach(el => {
+  const text = el.textContent.trim();
+  el.innerHTML = '';
+
+  text.split('').forEach((char, i) => {
+    const wrapper = document.createElement('span');
+    wrapper.className = 'char-wrapper';
+    wrapper.style.transitionDelay = `${i * 0.0075}s`;
+    const inner = document.createElement('span');
+    inner.className = 'char-inner';
+    const displayChar = char === ' ' ? '&nbsp;' : char;
+    inner.innerHTML = `<span>${displayChar}</span><span>${displayChar}</span>`;
+    wrapper.appendChild(inner);
+    el.appendChild(wrapper);
+  });
+
+  const hoverTarget = el.closest('.btn, .link') || el;
+
+  hoverTarget.onmouseenter = () => el.classList.add('hovered');
+  hoverTarget.onmouseleave = () => el.classList.remove('hovered');
 });
 
 

@@ -44,9 +44,19 @@ header.show {
   corner-shape: var(--s);
 }
 
-/* .link {
-  font-weight: 500;
-} */
+.link {
+  width: max-content;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    right: -0.5rem;
+    bottom: -0.5rem;
+  }
+}
 
 .links {
   display: flex;
@@ -63,6 +73,38 @@ header.show {
 #cases,
 #reviews {
   scroll-margin-top: 16vh;
+}
+
+.text-animated {
+  display: inline-block;
+}
+
+.char-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.char-inner {
+  display: block;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: inherit;
+  /* Задержка работает в обе стороны */
+}
+
+.char-inner span {
+  display: block;
+}
+
+.char-inner span:last-child {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.text-animated.hovered .char-inner {
+  transform: translateY(-100%);
 }
 
 .menu-overlay {
@@ -287,9 +329,15 @@ main {
   font-style: normal;
   font-size: var(--fs);
 
+  &.text-animated {
+    display: block;
+    white-space: nowrap;
+  }
+
   &:hover {
     color: var(--text-d);
     background: var(--btn-d-h);
+    cursor: pointer;
   }
 
   &.btn-p {
@@ -317,6 +365,7 @@ main {
   &.btn-dh-g {
     &:hover {
       background: var(--btn-dh-g);
+      color: var(--text-d);
     }
   }
 }
@@ -426,6 +475,12 @@ main {
   }
 }
 
+.wide .case-img:hover {
+    img {
+      transform: scale(1.018);
+    }
+  }
+
 .marquee {
   padding: var(--tb) var(--lr);
 }
@@ -496,6 +551,7 @@ main {
 }
 
 .adv-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -516,6 +572,31 @@ main {
 
   p {
     color: var(--text-gd);
+  }
+
+  img {
+    position: absolute;
+
+    &.adv-img-b {
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: auto;
+    }
+
+    &.adv-img-m {
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: auto;
+    }
+
+    &.adv-img-s {
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: auto;
+    }
   }
 }
 
@@ -607,7 +688,7 @@ main {
 .res-rc {
   display: flex;
   align-items: end;
-  gap: var(--g20);
+  gap: var(--g15);
   padding: var(--g40);
   background: var(--bg-l);
   border-radius: var(--g5);
@@ -669,6 +750,7 @@ main {
 
   &:hover {
     height: 10.875rem;
+    cursor: pointer;
 
     p {
       opacity: 1;
@@ -733,7 +815,7 @@ footer {
   grid-template-columns: repeat(3, 1fr);
   gap: var(--g20);
   color: var(--text-l);
-  padding: var(--g40) var(--lr);
+  padding: var(--g50) var(--lr);
 }
 
 .footer-g {
