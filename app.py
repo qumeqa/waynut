@@ -6,8 +6,8 @@ app = Flask(__name__)
 CORS(app)
 
 BOT_TOKEN = '8463774221:AAH1iooaBOg9WY88tqBi9Tlds3xDsrMpQDU'
-#CHAT_ID = '919110804'
-CHAT_ID = '2132792365'
+CHAT_ID = '919110804'
+# CHAT_ID = '2132792365'
 
 NAME_RE = re.compile(r'^[А-Яа-яA-Za-z\s]{2,50}$')
 COMPANY_RE = re.compile(r'^[А-Яа-яA-Za-z0-9\s\-]{2,100}$')
@@ -64,9 +64,11 @@ def send_form():
 
     return jsonify({'status': 'ok'}), 200
 
-@app.route('/main')
+@app.route('/')
+# @app.route('/main')
 def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5001, debug=True)
+    # app.run()
