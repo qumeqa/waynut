@@ -722,7 +722,7 @@
 
   <div class="fake-footer" id="contacts"></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='js/swiper-bundle.min.js') }}"></script>
   <script>
     const swiper = new Swiper('.reviewSwiper', {
       slidesPerView: 3,
@@ -756,9 +756,9 @@
     });
   </script>
 
-  <script src="https://unpkg.com/split-type"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="{{ url_for('static', filename='js/index.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/gsap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/ScrollTrigger.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
