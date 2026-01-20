@@ -5,19 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Waynut — разработка, дизайн и продвижение сайтов</title>
-  <meta name="description" content="Создаем уникальные фотожурналы для особенных моментов жизни.
-  Профессиональная фотосессия, дизайн и печать — вам остается только наслаждаться результатом">
+  <title>Разработка сайтов и дизайн интерфейсов — Waynut | Создание сайтов под ключ</title>
+  <meta name="description" content="Разработка сайтов, дизайн интерфейсов и Telegram-ботов. Быстрый старт, уникальный дизайн, честные цены. Портфолио реальных проектов с результатами.">
+  <link rel="canonical" href="https://waynut.ru/">
 
-  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-Regular.woff2') }}" as="font"
-    type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-Medium.woff2') }}" as="font" type="font/woff2"
-    crossorigin>
-  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-SemiBold.woff2') }}" as="font"
-    type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-Bold.woff2') }}" as="font" type="font/woff2"
-    crossorigin>
+  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-Regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-Medium.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-SemiBold.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ url_for('static', filename='fonts/VelaSans-Bold.woff2') }}" as="font" type="font/woff2" crossorigin>
 
-  <!-- <link rel="preload" href="img/2.webp" as="image"> -->
+  <link rel="preload" href="{{ url_for('static', filename='img/cases/1/1-d.png') }}" as="image">
+  <link rel="preload" href="{{ url_for('static', filename='img/cases/1/1-m.png') }}" as="image">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
@@ -26,7 +24,44 @@
 
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/swiper-bundle.min.css') }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Waynut",
+    "url": "https://waynut.ru",
+    "logo": "https://waynut.ru/static/img/icon.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@waynut.ru",
+      "contactType": "Customer Service"
+    },
+    "sameAs": ["https://t.me/waynut_dev"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Waynut",
+    "description": "Разработка сайтов, ботов и дизайн интерфейсов",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "3"
+    }
+  }
+  </script>
+
+  <meta property="og:title" content="Разработка сайтов, ботов и дизайн интерфейсов — Waynut">
+  <meta property="og:description"
+    content="Создаем современные сайты и цифровые продукты для бизнеса. Портфолио, отзывы клиентов, быстрый старт">
+  <meta property="og:image" content="https://waynut.ru/static/img/og.png">
+  <meta property="og:url" content="https://waynut.ru/">
+  <meta property="og:type" content="website">
 
   <script type="text/javascript">
     (function (m, e, t, r, i, k, a) {
