@@ -71,8 +71,13 @@ header.show {
 }
 
 #cases,
-#reviews, #contacts {
+#reviews,
+#contacts {
   scroll-margin-top: 16vh;
+}
+
+#contact {
+  scroll-margin-top: var(--g30);
 }
 
 .text-animated {
@@ -137,10 +142,6 @@ header.show {
       left: -1.25rem;
       right: -1.25rem;
       bottom: -1.25rem;
-    }
-
-    &:hover path {
-      fill: var(--text-l);
     }
   }
 
@@ -207,10 +208,6 @@ textarea {
     box-shadow: 0 1px 0 0 var(--bor-l);
   }
 
-  &:hover {
-    box-shadow: 0 1px 0 0 var(--bor-l);
-  }
-
   &:not(:placeholder-shown) {
     color: var(--text-l);
   }
@@ -239,8 +236,7 @@ textarea {
   }
 
   &:active,
-  &:focus,
-  &:hover {
+  &:focus {
     color: var(--text-l);
     box-shadow: 0 1px 0 0 var(--bor-l);
   }
@@ -334,39 +330,18 @@ main {
     white-space: nowrap;
   }
 
-  &:hover {
-    color: var(--text-d);
-    background: var(--btn-d-h);
-    cursor: pointer;
-  }
-
   &.btn-p {
     padding: 1.5rem 1.75rem;
     background: var(--btn-p-d);
     color: var(--text-d);
     justify-content: center;
     font-weight: 500;
-
-    &:hover {
-      background: var(--btn-p-h);
-    }
   }
 
   &.btn-l {
     background: var(--btn-l-d);
     color: var(--text-d);
     font-weight: 500;
-
-    &:hover {
-      background: var(--btn-l-h);
-    }
-  }
-
-  &.btn-dh-g {
-    &:hover {
-      background: var(--btn-dh-g);
-      color: var(--text-d);
-    }
   }
 }
 
@@ -467,19 +442,7 @@ main {
     object-fit: contain;
     transition: var(--tr);
   }
-
-  &:hover {
-    img {
-      transform: scale(1.025);
-    }
-  }
 }
-
-.wide .case-img:hover {
-    img {
-      transform: scale(1.018);
-    }
-  }
 
 .marquee {
   padding: var(--tb) var(--lr);
@@ -746,20 +709,6 @@ main {
     opacity: 0;
     transform: translateY(-0.625rem);
     transition: var(--tr);
-  }
-
-  &:hover {
-    height: 10.875rem;
-    cursor: pointer;
-
-    p {
-      opacity: 1;
-      transform: initial;
-    }
-
-    .num path {
-      fill: var(--bg-d);
-    }
   }
 }
 

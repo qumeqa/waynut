@@ -16,7 +16,6 @@ const menuBtns = document.querySelectorAll('.menu-btn');
 const closeBtns = document.querySelectorAll('.close-btn');
 const menuOverlay = document.getElementById('menu-overlay');
 
-// открыть меню
 menuBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -24,7 +23,6 @@ menuBtns.forEach(btn => {
   });
 });
 
-// закрыть меню
 closeBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -32,26 +30,20 @@ closeBtns.forEach(btn => {
   });
 });
 
-// клавиатура
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     menuOverlay.classList.remove('active');
-  }
-
-  if (['m', 'ь'].includes(e.key)) {
-    e.preventDefault();
-    menuOverlay.classList.toggle('active');
   }
 });
 
 
 
-const menuBtn = document.querySelector('.menu-btn.ph-s');
+const menuBtn = document.querySelector('.contact-btn.ph-s');
 const main = document.querySelector('main');
 
 if (menuBtn && main) {
   const gap = 20;
-  menuBtn.style.transition = 'position 0s, bottom 0s'; // Отключаем transition только для position и bottom
+  menuBtn.style.transition = 'position 0s, bottom 0s';
 
   window.addEventListener('scroll', () => {
     const mainRect = main.getBoundingClientRect();
@@ -220,7 +212,6 @@ document.querySelectorAll('.text-animated').forEach(el => {
 
 
 
-// Функция анимации чисел
 function animateNumber(element, target, duration = 1500) { // Увеличил длительность
   const isPercentage = target.includes('%');
   const numericTarget = parseFloat(target.replace(/[~,%]/g, ''));
@@ -231,7 +222,6 @@ function animateNumber(element, target, duration = 1500) { // Увеличил �
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
 
-    // Более плавная easing function (ease-out cubic -> quadratic)
     const easeProgress = 1 - Math.pow(1 - progress, 2);
 
     const current = start + (numericTarget - start) * easeProgress;
@@ -248,7 +238,6 @@ function animateNumber(element, target, duration = 1500) { // Увеличил �
   requestAnimationFrame(update);
 }
 
-// Проверяем поддержку IntersectionObserver
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -263,7 +252,6 @@ if ('IntersectionObserver' in window) {
     rootMargin: '0px'
   });
 
-  // Наблюдаем за всеми числами
   document.querySelectorAll('.res-rc h1.r').forEach(el => {
     observer.observe(el);
   });
@@ -298,9 +286,6 @@ function syncForms() {
 
 syncForms();
 
-/* ===============================
-   ФИЛЬТРАЦИЯ ПОЛЕЙ
-================================ */
 document.addEventListener('input', (e) => {
   if (e.target.name === 'name') {
     e.target.value = e.target.value.replace(/[^А-Яа-яA-Za-z\s]/g, '');
@@ -311,9 +296,6 @@ document.addEventListener('input', (e) => {
   }
 });
 
-/* ===============================
-   ОТПРАВКА ФОРМЫ
-================================ */
 function initFormSubmit() {
   const forms = document.querySelectorAll('.contact-form');
 
@@ -329,7 +311,6 @@ function initFormSubmit() {
       }
 
       try {
-        // const response = await fetch('/send-form', {
         const response = await fetch('http://127.0.0.1:5001/send-form', {
           method: 'POST',
           body: formData
@@ -355,9 +336,6 @@ function initFormSubmit() {
 
 initFormSubmit();
 
-/* ===============================
-   DRAG & DROP ФАЙЛОВ
-================================ */
 document.querySelectorAll('.file-upload').forEach(upload => {
   const fileLabel = upload.querySelector('.file-label');
   const fileInput = upload.querySelector('input[type="file"]');
@@ -366,8 +344,6 @@ document.querySelectorAll('.file-upload').forEach(upload => {
   fileLabel.addEventListener('click', () => {
     fileInput.click();
   });
-
-
 
   const preventDefaults = (e) => {
     e.preventDefault();
@@ -396,14 +372,10 @@ document.querySelectorAll('.file-upload').forEach(upload => {
     updateFileLabelText(fileInput);
   });
 
-
-
   fileInput.addEventListener('change', () => {
     updateAllFileLists(fileInput.files);
     updateFileLabelText(fileInput);
   });
-
-
 });
 
 let sharedFiles = null;
@@ -447,32 +419,27 @@ function clearFileLists() {
 
 
 
-//уведомление
 function showToast(message, duration = 5000, type = 'success') {
   const container = document.getElementById('toast-container');
   const toast = document.createElement('div');
   toast.classList.add('toast');
 
-  // Можно менять цвет в зависимости от типа
   if (type === 'error') toast.style.backgroundColor = '#f44336';
   if (type === 'success') toast.style.backgroundColor = '#4caf50';
 
   toast.textContent = message;
   container.appendChild(toast);
 
-  // Анимация появления
   setTimeout(() => toast.classList.add('show'), 10);
 
-  // Автоудаление через duration
   setTimeout(() => {
     toast.classList.remove('show');
-    setTimeout(() => toast.remove(), 300); // после анимации скрытия
+    setTimeout(() => toast.remove(), 300);
   }, duration);
 }
 
 
 
-// Функция для синхронизации высоты
 function syncFooterHeight() {
   const footer = document.querySelector('.footer');
   const fakeFooter = document.querySelector('.fake-footer');
@@ -483,13 +450,10 @@ function syncFooterHeight() {
   }
 }
 
-// Синхронизируем высоту при загрузке страницы
 syncFooterHeight();
 
-// Синхронизируем высоту при изменении размера окна
 window.addEventListener('resize', syncFooterHeight);
 
-// Опционально: синхронизация при изменении содержимого (если футер динамический)
 const observer = new ResizeObserver(syncFooterHeight);
 const footer = document.querySelector('.footer');
 if (footer) {

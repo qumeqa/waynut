@@ -1,3 +1,125 @@
+/* Hover styles for devices with hover capability */
+@media (hover: hover) {
+  a:hover {
+    color: var(--text-h);
+  }
+
+  .btn:hover {
+    color: var(--text-d);
+    background: var(--btn-d-h);
+    cursor: pointer;
+  }
+
+  .btn.btn-p:hover {
+    background: var(--btn-p-h);
+  }
+
+  .btn.btn-l:hover {
+    background: var(--btn-l-h);
+  }
+
+  .btn.btn-dh-g:hover {
+    background: var(--btn-dh-g);
+    color: var(--text-d);
+  }
+
+  #close-btn:hover path {
+    fill: var(--text-l);
+  }
+
+  input:hover,
+  textarea:hover {
+    box-shadow: 0 1px 0 0 var(--bor-l);
+  }
+
+  .file-upload:hover {
+    color: var(--text-l);
+    box-shadow: 0 1px 0 0 var(--bor-l);
+  }
+
+  .case-img:hover img {
+    transform: scale(1.025);
+  }
+
+  .wide .case-img:hover img {
+    transform: scale(1.018);
+  }
+
+  .hiw-card:hover {
+    height: 10.875rem;
+    cursor: pointer;
+  }
+
+  .hiw-card:hover p {
+    opacity: 1;
+    transform: initial;
+  }
+
+  .hiw-card:hover .num path {
+    fill: var(--bg-d);
+  }
+}
+
+/* Active/touch styles for devices without hover capability */
+@media (hover: none) {
+  a:active {
+    color: var(--text-h);
+  }
+
+  .btn:active {
+    color: var(--text-d);
+    background: var(--btn-d-h);
+  }
+
+  .btn.btn-p:active {
+    background: var(--btn-p-h);
+  }
+
+  .btn.btn-l:active {
+    background: var(--btn-l-h);
+  }
+
+  .btn.btn-dh-g:active {
+    background: var(--btn-dh-g);
+    color: var(--text-d);
+  }
+
+  #close-btn:active path {
+    fill: var(--text-l);
+  }
+
+  input:active,
+  textarea:active {
+    box-shadow: 0 1px 0 0 var(--bor-l);
+  }
+
+  .file-upload:active {
+    color: var(--text-l);
+    box-shadow: 0 1px 0 0 var(--bor-l);
+  }
+
+  .case-img:active img {
+    transform: scale(1.025);
+  }
+
+  .wide .case-img:active img {
+    transform: scale(1.018);
+  }
+
+  .hiw-card:active {
+    height: 10.875rem;
+  }
+
+  .hiw-card:active p {
+    opacity: 1;
+    transform: initial;
+  }
+
+  .hiw-card:active .num path {
+    fill: var(--bg-d);
+  }
+}
+
 @media (min-width: 2400px) {
   .gr {
     display: none !important;
@@ -74,7 +196,7 @@
     border-bottom-right-radius: calc(var(--g20) * 2);
   }
 
-  .menu-btn.ph-s {
+  .contact-btn.ph-s {
     position: fixed;
     z-index: 10;
     display: flex;
