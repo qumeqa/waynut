@@ -1,8 +1,9 @@
 @use "./shared" as *;
 
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 50;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   background: rgba(240, 240, 240, 0.8);
@@ -18,14 +19,8 @@
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--foreground);
-}
-
-.dot {
-  color: var(--primary);
+  height: 1.75rem;
+  width: auto;
 }
 
 .nav {
@@ -53,10 +48,7 @@
   border-radius: 10px;
   background: var(--secondary);
   color: var(--secondary-foreground);
-  padding: 0.75rem 1.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  transition: opacity 0.2s;
+  padding: $btn-sm;
 
   &:hover {
     opacity: 0.9;
