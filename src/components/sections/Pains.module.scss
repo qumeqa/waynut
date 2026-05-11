@@ -1,0 +1,63 @@
+@use "./shared" as *;
+
+.section {
+    position: relative;
+    @include section-pad;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.h2 {
+    @include h2;
+}
+
+.grid {
+    display: grid;
+    gap: 1.25rem;
+
+    @media (min-width: $bp-md) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    @include glass-card;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.iconBox {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--foreground);
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    stroke-width: 1.5;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.title {
+    @include card-title;
+}
+
+.text {
+    font-size: 1.125rem;
+    line-height: 1.4;
+    color: rgba(33, 33, 36, 0.65);
+}

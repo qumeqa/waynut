@@ -1,0 +1,57 @@
+// Общие точки переключения
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+
+// Цвета бренда (повторяют src/styles.css)
+$dark: #25242a;
+$dark-stroke: #34353a;
+
+// Утилиты
+@mixin container {
+  width: 100%;
+  max-width: 1840px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+
+  @media (min-width: $bp-md) {
+    padding: 0 2.5rem;
+  }
+}
+
+@mixin section-pad {
+  padding-bottom: 8rem;
+
+  @media (min-width: $bp-md) {
+    padding-bottom: 12rem;
+  }
+}
+
+@mixin h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+@mixin card-title {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: $dark;
+}
+
+@mixin glass-card {
+  border-radius: 20px;
+  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 2.5rem;
+}
+
+@mixin dark-block {
+  border-radius: 20px;
+  background: $dark;
+  color: #fff;
+  overflow: hidden;
+}

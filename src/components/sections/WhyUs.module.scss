@@ -1,0 +1,130 @@
+@use "./shared" as *;
+
+.section {
+  @include section-pad;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.h2 {
+  @include h2;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+
+  @media (min-width: $bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+.empty {
+  display: none;
+
+  @media (min-width: $bp-lg) {
+    display: block;
+  }
+}
+
+.card {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cardTall {
+  justify-content: space-between;
+
+  @media (min-width: $bp-lg) {
+    grid-row: span 2;
+    min-height: 705px;
+  }
+}
+
+.cardMid {
+  @media (min-width: $bp-lg) {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+}
+
+.cardTopRight {
+  justify-content: space-between;
+  gap: 2.5rem;
+
+  @media (min-width: $bp-lg) {
+    grid-row-start: 1;
+  }
+}
+
+.cardBotRight {
+  justify-content: space-between;
+  gap: 2.5rem;
+
+  @media (min-width: $bp-lg) {
+    grid-row-start: 2;
+  }
+}
+
+.bigNum {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  color: $dark;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.title {
+  @include card-title;
+}
+
+.text {
+  font-size: 1.125rem;
+  color: rgba(33, 33, 36, 0.65);
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &>*+* {
+    margin-left: -0.75rem;
+  }
+}
+
+.avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  border: 4px solid #fff;
+  object-fit: cover;
+}
+
+.btn {
+  align-self: flex-start;
+  border-radius: 10px;
+  background: var(--foreground);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
