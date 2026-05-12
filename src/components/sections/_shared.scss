@@ -3,12 +3,44 @@ $bp-sm: 640px;
 $bp-md: 768px;
 $bp-lg: 1024px;
 
-$btn-lg: 1.5rem 2rem;
-$btn-sm: 1rem 1.5rem;
-
 // Цвета бренда (повторяют src/styles.css)
 $dark: #25242a;
 $dark-stroke: #34353a;
+
+$btn-sm: 1rem 1.5rem;
+$btn-md: 1.5rem 2rem;
+
+// ============================================================
+// Типографика — меняй размеры/веса заголовков и текста ЗДЕСЬ.
+// Используется через миксины ниже (@include h1, h2, body...).
+// ============================================================
+
+// H2 — заголовки секций
+$h2-size:        clamp(1.75rem, 3vw, 2.5rem);
+$h2-weight:      600;
+$h2-line:        1.15;
+$h2-tracking:    -0.03em;
+
+// H3 — подзаголовки внутри секций
+$h3-size:        clamp(1.25rem, 2vw, 1.75rem);
+$h3-weight:      600;
+$h3-line:        1.2;
+$h3-tracking:    -0.02em;
+
+// Заголовок карточки
+$card-title-size:    1.5rem;
+$card-title-weight:  600;
+$card-title-line:    1.2;
+
+// Параграф / основной текст
+$body-size:      clamp(1rem, 0.9712rem + 0.1282vw, 1.125rem);
+$body-weight:    400;
+$body-line:      auto;
+
+// Мелкий текст / подписи
+$small-size:     0.875rem;
+$small-weight:   500;
+$small-line:     1.4;
 
 // Утилиты
 @mixin container {
@@ -16,30 +48,51 @@ $dark-stroke: #34353a;
   max-width: 1840px;
   margin: 0 auto;
   padding: 0 1.25rem;
-
-  @media (min-width: $bp-md) {
-    padding: 0 2.5rem;
-  }
+  @media (min-width: $bp-md) { padding: 0 2.5rem; }
 }
 
 @mixin section-pad {
   padding-bottom: 8rem;
+  @media (min-width: $bp-md) { padding-bottom: 12rem; }
+}
 
-  @media (min-width: $bp-md) {
-    padding-bottom: 12rem;
-  }
+@mixin h1 {
+  font-size: clamp(2rem, 1.6538rem + 1.5385vw, 3.5rem);;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
 }
 
 @mixin h2 {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-size: $h2-size;
+  font-weight: $h2-weight;
+  line-height: $h2-line;
+  letter-spacing: $h2-tracking;
+}
+
+@mixin h3 {
+  font-size: $h3-size;
+  font-weight: $h3-weight;
+  line-height: $h3-line;
+  letter-spacing: $h3-tracking;
+}
+
+@mixin body-text {
+  font-size: $body-size;
+  font-weight: $body-weight;
+  line-height: $body-line;
+}
+
+@mixin small-text {
+  font-size: $small-size;
+  font-weight: $small-weight;
+  line-height: $small-line;
 }
 
 @mixin card-title {
-  font-size: 1.5rem;
-  line-height: 1.2;
-  font-weight: 600;
+  font-size: $card-title-size;
+  line-height: $card-title-line;
+  font-weight: $card-title-weight;
   letter-spacing: -0.03em;
   color: $dark;
 }
@@ -47,7 +100,7 @@ $dark-stroke: #34353a;
 @mixin glass-card {
   border-radius: 20px;
   border: 2px solid #fff;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255,255,255,0.75);
   backdrop-filter: blur(12px);
   padding: 2.5rem;
 }

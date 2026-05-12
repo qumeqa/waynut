@@ -1,130 +1,118 @@
 @use "./shared" as *;
 
-.section {
-  @include section-pad;
-}
+.section { @include section-pad; }
+.inner { display: flex; flex-direction: column; gap: 2.5rem; padding-top: 11.25rem; }
+.h2 { @include h2; color: $dark; }
 
-.inner {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.h2 {
-  @include h2;
-}
-
+// 3-колоночная сетка по Figma. На мобильном схлопывается в одну колонку.
 .grid {
   display: grid;
   gap: 1.25rem;
-
+  grid-template-columns: 1fr;
   @media (min-width: $bp-lg) {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-auto-rows: minmax(0, 1fr);
+    height: 705px;
   }
 }
 
-.empty {
-  display: none;
-
-  @media (min-width: $bp-lg) {
-    display: block;
-  }
-}
-
-.card {
-  @include glass-card;
+// Колонка-обёртка (нужна для двух карточек в одной колонке)
+.col {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  @media (min-width: $bp-lg) { height: 100%; }
 }
 
-.cardTall {
+// Базовая «стеклянная» карточка
+.card {
+  border-radius: 20px;
+  border: 2px solid #fff;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+// Конкретные карточки
+.cardBig {                       // «100%»
   justify-content: space-between;
-
-  @media (min-width: $bp-lg) {
-    grid-row: span 2;
-    min-height: 705px;
-  }
+  gap: 1.25rem;
+  @media (min-width: $bp-lg) { flex: 0 0 500px; }
 }
-
-.cardMid {
-  @media (min-width: $bp-lg) {
-    grid-column-start: 2;
-    grid-row-start: 2;
-  }
+.cardSmall {                     // «Личное общение»
+  gap: 1.25rem;
+  @media (min-width: $bp-lg) { flex: 0 0 185px; }
 }
-
-.cardTopRight {
+.cardMiddle {                    // средняя — высокая, картинка сверху, текст снизу
+  justify-content: flex-end;
+  gap: 1.25rem;
+  @media (min-width: $bp-lg) { height: 100%; }
+}
+.cardSplit {                     // правые — две одинаковые
   justify-content: space-between;
   gap: 2.5rem;
-
-  @media (min-width: $bp-lg) {
-    grid-row-start: 1;
-  }
-}
-
-.cardBotRight {
-  justify-content: space-between;
-  gap: 2.5rem;
-
-  @media (min-width: $bp-lg) {
-    grid-row-start: 2;
-  }
+  @media (min-width: $bp-lg) { flex: 1 1 0; min-height: 0; }
 }
 
 .bigNum {
-  font-size: clamp(4rem, 8vw, 7rem);
+  font-size: clamp(4rem, 8vw, 6.25rem);
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: -0.08em;
   color: $dark;
 }
 
-.body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
+.body { display: flex; flex-direction: column; gap: 1.25rem; }
+.title { @include card-title; }
+.text { font-size: 1.125rem; line-height: 1.4; color: rgba(33,33,36,0.65); }
 
-.title {
-  @include card-title;
-}
-
-.text {
-  font-size: 1.125rem;
-  color: rgba(33, 33, 36, 0.65);
-}
-
+// Аватары в «Фокус на результатах»
 .avatars {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  &>*+* {
-    margin-left: -0.75rem;
-  }
+  display: flex; align-items: center; justify-content: flex-end;
+  & > * + * { margin-left: -0.75rem; }
 }
-
 .avatar {
-  width: 4rem;
-  height: 4rem;
+  width: 4rem; height: 4rem;
   border-radius: 9999px;
   border: 4px solid #fff;
   object-fit: cover;
+  background: #f0f0f0;
 }
 
 .btn {
   align-self: flex-start;
   border-radius: 10px;
-  background: var(--foreground);
+  background: $dark;
   color: #fff;
   padding: 1rem 1.5rem;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 500;
+  letter-spacing: -0.02em;
   transition: filter 0.2s;
+  &:hover { filter: brightness(1.15); }
+}
 
-  &:hover {
-    filter: brightness(1.1);
-  }
+// Картинка-фон в средней карточке («Доступные цены»)
+.middleImageWrap {
+  position: absolute;
+  inset: -2px -2px auto -2px;
+  height: 503px;
+  pointer-events: none;
+}
+.middleImage {
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+.middleImageFade {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0));
+}
+.middleText {
+  position: relative;
+  z-index: 1;
+  display: flex; flex-direction: column; gap: 1.25rem;
 }

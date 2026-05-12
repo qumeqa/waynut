@@ -2,12 +2,19 @@
 
 .header {
   position: fixed;
-  top: 0;
   width: 100%;
+  top: 0;
   z-index: 50;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  backdrop-filter: none;
+  transition: background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
+}
+
+.header.scrolled {
   background: rgba(240, 240, 240, 0.8);
   backdrop-filter: blur(20px);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 
 .inner {
@@ -21,6 +28,7 @@
 .logo {
   height: 1.75rem;
   width: auto;
+  color: var(--foreground);
 }
 
 .nav {
@@ -34,9 +42,7 @@
 }
 
 .link {
-  font-size: 1rem;
-  font-weight: 500;
-  color: rgba(33, 33, 36, 0.7);
+ font-size: $body-size;
   transition: color 0.2s;
 
   &:hover {
@@ -45,10 +51,12 @@
 }
 
 .cta {
+  font-size: $body-size;
   border-radius: 10px;
   background: var(--secondary);
   color: var(--secondary-foreground);
   padding: $btn-sm;
+  transition: opacity 0.2s;
 
   &:hover {
     opacity: 0.9;

@@ -22,6 +22,12 @@ export function Hero() {
           <a href="#services" className={`${styles.btn} ${styles.btnLight}`}>Рассчитать стоимость</a>
         </div>
       </Container>
+      <video
+        className={styles.bgVideo}
+        src="../src/assets/videos/bg.mp4"
+        autoPlay muted loop playsInline preload="auto"
+        poster="/videos/hero-poster.jpg"
+      />
     </section>
   );
 }

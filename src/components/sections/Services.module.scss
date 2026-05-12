@@ -1,76 +1,24 @@
 @use "./shared" as *;
 
-.section {
-  @include section-pad;
-}
-
-.block {
-  @include dark-block;
-  background: var(--foreground);
-}
-
-.header {
-  padding: 2.5rem;
-}
-
-.h2 {
-  @include h2;
-  line-height: 1.2;
-}
-
-.accent {
-  color: var(--primary);
-}
-
+.section { @include section-pad; }
+.block { @include dark-block; background: var(--foreground); }
+.header { padding: 2.5rem; }
+.h2 { @include h2; line-height: 1.2; }
+.accent { color: var(--primary); }
 .grid {
   display: grid;
   border-top: 2px solid $dark-stroke;
-
   @media (min-width: $bp-md) {
     grid-template-columns: repeat(2, 1fr);
-
-    &>.col:nth-child(odd) {
-      border-right: 2px solid $dark-stroke;
-    }
+    & > .col:nth-child(odd) { border-right: 2px solid $dark-stroke; }
   }
-
   @media (min-width: $bp-lg) {
     grid-template-columns: repeat(4, 1fr);
-
-    &>.col:nth-child(odd) {
-      border-right: none;
-    }
-
-    &>.col:not(:last-child) {
-      border-right: 2px solid $dark-stroke;
-    }
+    & > .col:nth-child(odd) { border-right: none; }
+    & > .col:not(:last-child) { border-right: 2px solid $dark-stroke; }
   }
 }
-
-.col {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2.5rem;
-  min-height: 380px;
-  padding: 2.5rem;
-}
-
-.colLabel {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-}
-
-.item {
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  color: #fff;
-}
+.col { display: flex; flex-direction: column; justify-content: space-between; gap: 2.5rem; min-height: 380px; padding: 2.5rem; }
+.colLabel { font-size: 1.125rem; color: rgba(255,255,255,0.65); }
+.list { display: flex; flex-direction: column; gap: 0.625rem; }
+.item { font-size: 1.5rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.03em; color: #fff; }

@@ -1,83 +1,15 @@
 @use "./shared" as *;
 
-.section {
-    @include section-pad;
-}
-
-.grid {
-    display: grid;
-    gap: 2.5rem;
-
-    @media (min-width: $bp-lg) {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.25rem;
-    }
-}
-
-.h2 {
-    @include h2;
-    position: sticky;
-    top: 8rem;
-}
-
-.list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-}
-
-.item {
-    border-radius: 20px;
-    background: #fff;
-    padding: 1.75rem 2.5rem;
-}
-
-.btn {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    text-align: left;
-}
-
-.q {
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
-    color: var(--foreground);
-}
-
-.icon {
-    flex-shrink: 0;
-    color: var(--foreground);
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.icon svg {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.answerWrap {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: all 0.3s;
-}
-
-.answerOpen {
-    grid-template-rows: 1fr;
-    margin-top: 1.25rem;
-}
-
-.answerInner {
-    overflow: hidden;
-}
-
-.a {
-    font-size: 1.125rem;
-    line-height: 1.4;
-    color: rgba(33, 33, 36, 0.65);
-}
+.section { @include section-pad; }
+.grid { display: grid; gap: 2.5rem; @media (min-width: $bp-lg) { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; } }
+.h2 { @include h2; position: sticky; top: 8rem; }
+.list { display: flex; flex-direction: column; gap: 0.625rem; }
+.item { border-radius: 20px; background: #fff; padding: 1.75rem 2.5rem; }
+.btn { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 1.5rem; text-align: left; }
+.q { font-size: 1.5rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.03em; color: var(--foreground); }
+.icon { flex-shrink: 0; color: var(--foreground); width: 1.5rem; height: 1.5rem; }
+.icon svg { width: 1.5rem; height: 1.5rem; }
+.answerWrap { display: grid; grid-template-rows: 0fr; transition: all 0.3s; }
+.answerOpen { grid-template-rows: 1fr; margin-top: 1.25rem; }
+.answerInner { overflow: hidden; }
+.a { font-size: 1.125rem; line-height: 1.4; color: rgba(33,33,36,0.65); }
