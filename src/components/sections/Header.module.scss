@@ -42,7 +42,6 @@
 }
 
 .link {
- font-size: $body-size;
   transition: color 0.2s;
 
   &:hover {
@@ -51,7 +50,6 @@
 }
 
 .cta {
-  font-size: $body-size;
   border-radius: 10px;
   background: var(--secondary);
   color: var(--secondary-foreground);

@@ -10,38 +10,6 @@ $dark-stroke: #34353a;
 $btn-sm: 1rem 1.5rem;
 $btn-md: 1.5rem 2rem;
 
-// ============================================================
-// Типографика — меняй размеры/веса заголовков и текста ЗДЕСЬ.
-// Используется через миксины ниже (@include h1, h2, body...).
-// ============================================================
-
-// H2 — заголовки секций
-$h2-size:        clamp(1.75rem, 3vw, 2.5rem);
-$h2-weight:      600;
-$h2-line:        1.15;
-$h2-tracking:    -0.03em;
-
-// H3 — подзаголовки внутри секций
-$h3-size:        clamp(1.25rem, 2vw, 1.75rem);
-$h3-weight:      600;
-$h3-line:        1.2;
-$h3-tracking:    -0.02em;
-
-// Заголовок карточки
-$card-title-size:    1.5rem;
-$card-title-weight:  600;
-$card-title-line:    1.2;
-
-// Параграф / основной текст
-$body-size:      clamp(1rem, 0.9712rem + 0.1282vw, 1.125rem);
-$body-weight:    400;
-$body-line:      auto;
-
-// Мелкий текст / подписи
-$small-size:     0.875rem;
-$small-weight:   500;
-$small-line:     1.4;
-
 // Утилиты
 @mixin container {
   width: 100%;
@@ -64,37 +32,37 @@ $small-line:     1.4;
 }
 
 @mixin h2 {
-  font-size: $h2-size;
-  font-weight: $h2-weight;
-  line-height: $h2-line;
-  letter-spacing: $h2-tracking;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
 }
 
 @mixin h3 {
-  font-size: $h3-size;
-  font-weight: $h3-weight;
-  line-height: $h3-line;
-  letter-spacing: $h3-tracking;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 @mixin body-text {
-  font-size: $body-size;
-  font-weight: $body-weight;
-  line-height: $body-line;
+  font-size: clamp(1rem, 0.9712rem + 0.1282vw, 1.125rem);
+  font-weight: 400;
+  line-height: auto;
 }
 
 @mixin small-text {
-  font-size: $small-size;
-  font-weight: $small-weight;
-  line-height: $small-line;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 @mixin card-title {
-  font-size: $card-title-size;
-  line-height: $card-title-line;
-  font-weight: $card-title-weight;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 600;
   letter-spacing: -0.03em;
-  color: $dark;
+  color: #25242a;
 }
 
 @mixin glass-card {

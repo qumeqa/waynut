@@ -9,7 +9,7 @@ export function Hero() {
           <span className={styles.badge}>Сайт от 20 000 ₽</span>
           <span className={styles.badge}>От 7 дней</span>
         </div>
-        <h1 className={styles.title}>
+        <h1>
           Сайты, чат-боты и&nbsp;продвижение,<br />
           которые приносят клиентов
         </h1>
