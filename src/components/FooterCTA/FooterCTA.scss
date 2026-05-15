@@ -1,0 +1,102 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.footer-cta {
+  padding-bottom: 2.5rem;
+
+  &__block { @include dark-block; h2 { color: $white; } }
+
+  &__top {
+    display: grid;
+    gap: 2.5rem;
+    padding: $card-padding;
+    @media (min-width: $bp-md) { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.5rem;
+  }
+
+  &__socials { display: flex; align-items: center; gap: 1rem; }
+  &__social {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    color: $primary;
+    transition: transform 0.2s;
+    &:hover { transform: scale(1.1); }
+    svg { width: 1.75rem; height: 1.75rem; }
+  }
+
+  &__form { display: flex; flex-direction: column; gap: 1.25rem; }
+  &__inputs {
+    display: grid;
+    gap: 1.25rem;
+    @media (min-width: $bp-md) { grid-template-columns: repeat(3, 1fr); }
+  }
+  &__input {
+    border: none;
+    border-bottom: 2px solid $dark-stroke;
+    background: transparent;
+    padding: 1.25rem 0;
+    text-align: center;
+    color: $white;
+    outline: none;
+    transition: border-color 0.2s;
+    &::placeholder { color: $white; }
+    &:focus { border-color: $primary; }
+  }
+
+  &__policy { padding-top: 1.75rem; color: rgba(255, 255, 255, 0.3); }
+  &__policy-link { color: $text-on-dark; text-underline-offset: 4px; &:hover { text-decoration: underline; } }
+
+  &__submit {
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    background: $primary;
+    color: $dark;
+    padding: 1.25rem 2rem;
+    font-weight: 500;
+    transition: filter 0.2s;
+    &:hover { filter: brightness(1.05); }
+  }
+
+  &__cols {
+    display: grid;
+    gap: 2.5rem;
+    border-top: 2px solid $dark-stroke;
+    padding: $card-padding;
+    @media (min-width: $bp-md) { grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: $bp-lg) { grid-template-columns: repeat(4, 1fr); }
+  }
+  &__col { display: flex; flex-direction: column; gap: 2.5rem; }
+  &__col-label { color: $text-on-dark; }
+  &__col-list { display: flex; flex-direction: column; gap: 0.625rem; }
+  &__col-link {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: $white;
+    transition: color 0.2s;
+    &:hover { color: $primary; }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 2px solid $dark-stroke;
+    padding: $card-padding;
+  }
+  &__logo { font-size: 1.5rem; font-weight: 800; color: $white; }
+  &__dot { color: $primary; }
+  &__copyright { color: $text-on-dark; }
+}

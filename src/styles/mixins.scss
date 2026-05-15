@@ -1,0 +1,33 @@
+@use "./variables" as *;
+
+// Контейнер по центру с отступами
+@mixin container {
+  width: 100%;
+  max-width: 1840px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  @media (min-width: $bp-md) { padding: 0 2.5rem; }
+}
+
+// Нижний отступ секции
+@mixin section-pad {
+  padding-bottom: 8rem;
+  @media (min-width: $bp-md) { padding-bottom: 12rem; }
+}
+
+// Светлая «стеклянная» карточка
+@mixin glass-card {
+  border-radius: $card-radius;
+  border: 2px solid $white;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  padding: $card-padding;
+}
+
+// Тёмный блок-обёртка
+@mixin dark-block {
+  border-radius: $card-radius;
+  background: $dark;
+  color: $white;
+  overflow: hidden;
+}

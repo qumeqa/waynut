@@ -1,0 +1,34 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.pains {
+  position: relative;
+  @include section-pad;
+
+  &__inner { display: flex; flex-direction: column; gap: 2.5rem; }
+
+  &__grid {
+    display: grid;
+    gap: 1.25rem;
+    @media (min-width: $bp-md) { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  &__card {
+    @include glass-card;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  &__icon-box {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    color: $dark;
+  }
+  &__icon { width: 2rem; height: 2rem; stroke-width: 1.5; }
+  &__body { display: flex; flex-direction: column; gap: 1.25rem; }
+  &__text { color: $text-muted; }
+}

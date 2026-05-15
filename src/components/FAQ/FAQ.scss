@@ -1,0 +1,58 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.faq {
+  @include section-pad;
+
+  &__grid {
+    display: grid;
+    gap: 2.5rem;
+    @media (min-width: $bp-lg) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      h2 { position: sticky; top: 8rem; }
+    }
+  }
+
+  &__list { display: flex; flex-direction: column; gap: 0.625rem; }
+
+  &__item {
+    border-radius: $card-radius;
+    background: $white;
+    padding: 1.75rem 2.5rem;
+  }
+
+  &__btn {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  &__q {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: $dark;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    color: $dark;
+    width: 1.5rem;
+    height: 1.5rem;
+    svg { width: 1.5rem; height: 1.5rem; }
+  }
+
+  &__answer-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: all 0.3s;
+    &.is-open { grid-template-rows: 1fr; margin-top: 1.25rem; }
+  }
+  &__answer-inner { overflow: hidden; }
+  &__a { color: $text-muted; }
+}

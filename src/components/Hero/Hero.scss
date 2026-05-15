@@ -1,0 +1,47 @@
+@use "../../styles/variables" as *;
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  &__bg { position: absolute; inset: 0; z-index: -1; }
+  &__bg-radial { position: absolute; inset: 0; background: radial-gradient(1200px 700px at 85% -10%, rgba(255, 143, 64, 0.35), transparent 60%); }
+  &__bg-fade   { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(240, 240, 240, 0.6) 100%); }
+  &__bg-wave   { position: absolute; inset: 0; height: 100%; width: 100%; opacity: 0.07; color: $dark; }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    min-height: calc(100vh - 90px);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    @media (min-width: $bp-md) { padding-top: 7rem; padding-bottom: 7rem; }
+  }
+
+  &__badges { display: flex; flex-wrap: wrap; gap: 0.625rem; }
+  &__badge {
+    border-radius: 10px;
+    background: $white;
+    padding: 0.625rem 1.25rem;
+    color: $text-muted;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+
+  &__lede { max-width: 48rem; color: $text-muted; }
+  &__br-md { display: none; @media (min-width: $bp-md) { display: inline; } }
+
+  &__actions { display: flex; flex-wrap: wrap; gap: 0.625rem; }
+  &__btn {
+    border-radius: 10px;
+    padding: 1.25rem 2rem;
+    font-weight: 500;
+    color: $dark;
+    transition: filter 0.2s;
+
+    &--primary { background: $primary; &:hover { filter: brightness(1.05); } }
+    &--light   { background: $white;   &:hover { filter: brightness(0.95); } }
+  }
+}

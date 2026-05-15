@@ -1,0 +1,33 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.process {
+  @include section-pad;
+
+  &__inner { display: flex; flex-direction: column; gap: 2.5rem; }
+
+  &__grid {
+    display: grid;
+    gap: 1.25rem;
+    @media (min-width: $bp-md) { grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: $bp-lg) { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  &__card {
+    @include glass-card;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__icon-box {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    color: $dark;
+  }
+  &__icon { width: 2rem; height: 2rem; stroke-width: 1.5; }
+  &__text { color: $text-muted; }
+}
