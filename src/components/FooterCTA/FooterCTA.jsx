@@ -13,48 +13,48 @@ export function FooterCTA() {
   return (
     <section id="cta" className="footer-cta">
       <Container>
-        <div className="footer-cta__block">
-          <div className="footer-cta__top">
-            <div className="footer-cta__left">
+        <div className="block">
+          <div className="top">
+            <div className="left">
               <h2>Давайте обсудим ваш проект</h2>
-              <div className="footer-cta__socials">
-                <a href="#" aria-label="Telegram" className="footer-cta__social"><Send /></a>
-                <a href="#" aria-label="VK" className="footer-cta__social"><MessageCircle /></a>
-                <a href="#" aria-label="Email" className="footer-cta__social"><Mail /></a>
+              <div className="socials">
+                <a href="#" aria-label="Telegram" className="social"><Send /></a>
+                <a href="#" aria-label="VK" className="social"><MessageCircle /></a>
+                <a href="#" aria-label="Email" className="social"><Mail /></a>
               </div>
             </div>
-            <form className="footer-cta__form" onSubmit={(e) => e.preventDefault()}>
-              <div className="footer-cta__inputs">
+            <form className="form" onSubmit={(e) => e.preventDefault()}>
+              <div className="inputs">
                 {["Имя*", "Почта*", "Телефон*"].map((p) => (
-                  <input key={p} placeholder={p} className="footer-cta__input" />
+                  <input key={p} placeholder={p} className="input" />
                 ))}
               </div>
-              <p className="footer-cta__policy">
+              <p className="policy">
                 Отправляя заявку, вы соглашаетесь с{" "}
-                <a href="#" className="footer-cta__policy-link">политикой конфиденциальности</a>
+                <a href="#" className="policy-link">политикой конфиденциальности</a>
               </p>
-              <button type="submit" className="footer-cta__submit">Отправить заявку</button>
+              <button type="submit" className="btn btn--primary submit">Отправить заявку</button>
             </form>
           </div>
-          <div className="footer-cta__cols">
+          <div className="cols">
             {cols.map((c) => (
-              <div key={c.title} className="footer-cta__col">
-                <p className="footer-cta__col-label">{c.title}</p>
-                <ul className="footer-cta__col-list">
+              <div key={c.title} className="col">
+                <p className="col-label">{c.title}</p>
+                <ul className="col-list">
                   {c.items.map((it) => (
                     <li key={it.label}>
-                      <a href={it.href || "#"} className="footer-cta__col-link">{it.label}</a>
+                      <a href={it.href || "#"} className="col-link">{it.label}</a>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
-          <div className="footer-cta__bottom">
-            <a href="#" className="footer-cta__logo">
-              Waynut<span className="footer-cta__dot">.</span>
+          <div className="bottom">
+            <a href="#" className="logo">
+              Waynut<span className="dot">.</span>
             </a>
-            <span className="footer-cta__copyright">© 2026 Waynut</span>
+            <span className="copyright">© 2026 Waynut</span>
           </div>
         </div>
       </Container>

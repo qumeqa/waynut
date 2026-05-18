@@ -4,9 +4,9 @@
 .why {
   @include section-pad;
 
-  &__inner { display: flex; flex-direction: column; gap: 2.5rem; padding-top: 11.25rem; }
+  .inner { display: flex; flex-direction: column; gap: 2.5rem; padding-top: 11.25rem; }
 
-  &__grid {
+  .grid {
     display: grid;
     gap: 1.25rem;
     grid-template-columns: 1fr;
@@ -17,14 +17,14 @@
     }
   }
 
-  &__col {
+  .col {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     @media (min-width: $bp-lg) { height: 100%; }
   }
 
-  &__card {
+  .card {
     @include glass-card;
     position: relative;
     overflow: hidden;
@@ -52,7 +52,7 @@
     }
   }
 
-  &__big-num {
+  .big-num {
     font-size: clamp(4rem, 8vw, 6.25rem);
     font-weight: 500;
     line-height: 1.05;
@@ -60,23 +60,23 @@
     color: $dark;
   }
 
-  &__body { display: flex; flex-direction: column; gap: 1.25rem; }
-  &__title {
+  .body { display: flex; flex-direction: column; gap: 1.25rem; }
+  .title {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.03em;
     color: $dark;
   }
-  &__text { color: $text-muted; }
+  .text { color: $text-muted; }
 
-  &__avatars {
+  .avatars {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     & > * + * { margin-left: -0.75rem; }
   }
-  &__avatar {
+  .avatar {
     width: 4rem;
     height: 4rem;
     border-radius: 9999px;
@@ -85,32 +85,19 @@
     background: $bg;
   }
 
-  &__btn {
-    align-self: flex-start;
-    border-radius: 10px;
-    background: $dark;
-    color: $white;
-    padding: 1rem 1.5rem;
-    font-size: 1.125rem;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    transition: filter 0.2s;
-    &:hover { filter: brightness(1.15); }
-  }
-
-  &__middle-image-wrap {
+  .middle-image-wrap {
     position: absolute;
     inset: -2px -2px auto -2px;
     height: 503px;
     pointer-events: none;
   }
-  &__middle-image { width: 100%; height: 100%; object-fit: contain; }
-  &__middle-image-fade {
+  .middle-image { width: 100%; height: 100%; object-fit: contain; }
+  .middle-image-fade {
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
   }
-  &__middle-text {
+  .middle-text {
     position: relative;
     z-index: 1;
     display: flex;

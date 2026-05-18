@@ -4,23 +4,33 @@
 .process {
   @include section-pad;
 
-  &__inner { display: flex; flex-direction: column; gap: 2.5rem; }
-
-  &__grid {
-    display: grid;
-    gap: 1.25rem;
-    @media (min-width: $bp-md) { grid-template-columns: repeat(2, 1fr); }
-    @media (min-width: $bp-lg) { grid-template-columns: repeat(4, 1fr); }
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
   }
 
-  &__card {
+  .grid {
+    display: grid;
+    gap: 1.25rem;
+
+    @media (min-width: $bp-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .card {
     @include glass-card;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 3.5rem;
   }
 
-  &__icon-box {
+  .icon-box {
     display: flex;
     width: 3rem;
     height: 3rem;
@@ -28,6 +38,20 @@
     justify-content: center;
     color: $dark;
   }
-  &__icon { width: 2rem; height: 2rem; stroke-width: 1.5; }
-  &__text { color: $text-muted; }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    stroke-width: 1.5;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .text {
+    color: $text-muted;
+  }
 }

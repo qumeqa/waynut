@@ -6,27 +6,48 @@
   max-width: 1840px;
   margin: 0 auto;
   padding: 0 1.25rem;
-  @media (min-width: $bp-md) { padding: 0 2.5rem; }
+
+  @media (min-width: $bp-md) {
+    padding: 0 2.5rem;
+  }
 }
 
 // Нижний отступ секции
 @mixin section-pad {
   padding-bottom: 8rem;
-  @media (min-width: $bp-md) { padding-bottom: 12rem; }
+
+  @media (min-width: $bp-md) {
+    padding-bottom: 12rem;
+  }
 }
 
 // Светлая «стеклянная» карточка
 @mixin glass-card {
-  border-radius: $card-radius;
-  border: 2px solid $white;
+  position: relative;
+  border-radius: $radius-md;
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(12px);
-  padding: $card-padding;
+  padding: $padding-md;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(0deg, #ffffff00 0%, #ffffff80 100%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 }
 
 // Тёмный блок-обёртка
 @mixin dark-block {
-  border-radius: $card-radius;
+  border-radius: $radius-md;
   background: $dark;
   color: $white;
   overflow: hidden;

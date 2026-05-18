@@ -5,17 +5,17 @@ import "./Cases.scss";
 export function Cases() {
   return (
     <section id="Кейсы" className="cases">
-      <Container className="cases__inner">
+      <Container className="inner">
         <h2>Реализованные проекты</h2>
-        <div className="cases__grid">
+        <div className="grid">
           {projects.map((p) => (
-            <a key={p.name} href="#" className="cases__card">
-              <div className="cases__img-wrap">
-                <img src={p.img} alt={p.name} loading="lazy" className="cases__img" />
+            <a key={p.name} href="#" className="card">
+              <div className="img-wrap">
+                <img src={p.img} alt={p.name} loading="lazy" className="img" />
               </div>
-              <div className="cases__body">
+              <div className="body">
                 <h3>{p.name}</h3>
-                <p className="cases__text">{p.desc}</p>
+                <p className="text">{p.desc}</p>
               </div>
             </a>
           ))}

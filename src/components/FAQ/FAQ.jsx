@@ -9,24 +9,24 @@ export function FAQ() {
   return (
     <section className="faq">
       <Container>
-        <div className="faq__grid">
+        <div className="grid">
           <div>
             <h2>Часто задаваемые вопросы</h2>
           </div>
-          <div className="faq__list">
+          <div className="list">
             {faqs.map((f, i) => {
               const isOpen = open === i;
               return (
-                <div key={f.q} className="faq__item">
-                  <button onClick={() => setOpen(isOpen ? null : i)} className="faq__btn">
-                    <span className="faq__q">{f.q}</span>
-                    <span className="faq__icon">
+                <div key={f.q} className="item">
+                  <button onClick={() => setOpen(isOpen ? null : i)} className="q-btn">
+                    <span className="q">{f.q}</span>
+                    <span className="icon">
                       {isOpen ? <Minus /> : <Plus />}
                     </span>
                   </button>
-                  <div className={`faq__answer-wrap ${isOpen ? "is-open" : ""}`}>
-                    <div className="faq__answer-inner">
-                      <p className="faq__a">{f.a}</p>
+                  <div className={`answer-wrap ${isOpen ? "is-open" : ""}`}>
+                    <div className="answer-inner">
+                      <p className="a">{f.a}</p>
                     </div>
                   </div>
                 </div>

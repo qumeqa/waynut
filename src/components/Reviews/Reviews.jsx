@@ -28,28 +28,28 @@ export function Reviews() {
   return (
     <section id="Отзывы" className="reviews">
       <Container>
-        <div className="reviews__block">
-          <div className="reviews__header">
+        <div className="block">
+          <div className="header">
             <h2>Отзывы наших клиентов</h2>
-            <div className="reviews__nav">
-              <button onClick={prev} disabled={safeIndex === 0} aria-label="Предыдущий" className="reviews__nav-btn">
-                <ArrowLeft className="reviews__nav-icon" />
+            <div className="nav">
+              <button onClick={prev} disabled={safeIndex === 0} aria-label="Предыдущий" className="nav-btn">
+                <ArrowLeft className="nav-icon" />
               </button>
-              <button onClick={next} disabled={safeIndex >= maxIndex} aria-label="Следующий" className="reviews__nav-btn">
-                <ArrowRight className="reviews__nav-icon" />
+              <button onClick={next} disabled={safeIndex >= maxIndex} aria-label="Следующий" className="nav-btn">
+                <ArrowRight className="nav-icon" />
               </button>
             </div>
           </div>
-          <div className="reviews__viewport">
-            <div className="reviews__track" style={{ transform: `translateX(-${safeIndex * (100 / perView)}%)` }}>
+          <div className="viewport">
+            <div className="track" style={{ transform: `translateX(-${safeIndex * (100 / perView)}%)` }}>
               {reviews.map((r) => (
-                <div key={r.name} className="reviews__card" style={{ width: `${100 / perView}%` }}>
-                  <p className="reviews__text">{r.text}</p>
-                  <div className="reviews__author">
-                    <img src={r.avatar} alt={r.name} className="reviews__avatar" />
-                    <div className="reviews__author-meta">
-                      <div className="reviews__name">{r.name}</div>
-                      <div className="reviews__role">{r.role}</div>
+                <div key={r.name} className="card" style={{ width: `${100 / perView}%` }}>
+                  <p className="text">{r.text}</p>
+                  <div className="author">
+                    <img src={r.avatar} alt={r.name} className="avatar" />
+                    <div className="author-meta">
+                      <div className="name">{r.name}</div>
+                      <div className="role">{r.role}</div>
                     </div>
                   </div>
                 </div>

@@ -4,7 +4,7 @@
 .faq {
   @include section-pad;
 
-  &__grid {
+  .grid {
     display: grid;
     gap: 2.5rem;
     @media (min-width: $bp-lg) {
@@ -14,15 +14,14 @@
     }
   }
 
-  &__list { display: flex; flex-direction: column; gap: 0.625rem; }
+  .list { display: flex; flex-direction: column; gap: 0.625rem; }
 
-  &__item {
-    border-radius: $card-radius;
+  .item {
     background: $white;
     padding: 1.75rem 2.5rem;
   }
 
-  &__btn {
+  .q-btn {
     display: flex;
     width: 100%;
     align-items: center;
@@ -31,7 +30,7 @@
     text-align: left;
   }
 
-  &__q {
+  .q {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.2;
@@ -39,7 +38,7 @@
     color: $dark;
   }
 
-  &__icon {
+  .icon {
     flex-shrink: 0;
     color: $dark;
     width: 1.5rem;
@@ -47,12 +46,12 @@
     svg { width: 1.5rem; height: 1.5rem; }
   }
 
-  &__answer-wrap {
+  .answer-wrap {
     display: grid;
     grid-template-rows: 0fr;
     transition: all 0.3s;
     &.is-open { grid-template-rows: 1fr; margin-top: 1.25rem; }
   }
-  &__answer-inner { overflow: hidden; }
-  &__a { color: $text-muted; }
+  .answer-inner { overflow: hidden; }
+  .a { color: $text-muted; }
 }

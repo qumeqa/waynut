@@ -1,31 +1,24 @@
-import { useEffect, useState } from "react";
+
 import { Container } from "../Container/Container";
 import "./Header.scss";
 
-const links = ["Услуги", "Кейсы", "Отзывы", "Калькулятор", "Блог", "Контакты"];
+const links = ["Услуги", "Кейсы", "Отзывы", "Блог", "Контакты"];
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-      <Container className="site-header__inner">
-        <a href="#" className="site-header__logo">
-          Waynut<span className="site-header__dot">.</span>
+    <header className="site-header">
+      <Container className="inner">
+        <a href="#" className="logo">
+          <svg width="136" height="35" viewBox="0 0 136 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M66.8203 22.5889L71.9062 10H77.8389L67.7383 35H61.8057L64.127 29.2539L55.5547 10H61.5479L66.8203 22.5889ZM10.8936 21.292L15.5264 4H21.7168L26.3496 21.292L30.9834 4H37.1953L30.4971 29H23.2373L18.6211 11.7695L14.0059 29H6.74609L0.0478516 4H6.25977L10.8936 21.292ZM45.4473 10C48.8076 10 50.488 10.0003 51.7715 10.6543C52.9004 11.2295 53.8183 12.1474 54.3936 13.2764C55.0474 14.5598 55.0479 16.2397 55.0479 19.5996V29H42.0479C38.7341 29 36.0479 26.3137 36.0479 23C36.0479 19.6863 38.7341 17 42.0479 17H49.0479C49.0479 16.0681 49.0477 15.6019 48.8955 15.2344C48.6925 14.7444 48.3025 14.3553 47.8125 14.1523C47.445 14.0003 46.9793 14 46.0479 14H38.0479V10H45.4473ZM88.4473 10C91.8076 10 93.488 10.0003 94.7715 10.6543C95.9004 11.2295 96.8183 12.1474 97.3936 13.2764C98.0474 14.5598 98.0479 16.2397 98.0479 19.5996V29H92.0479V17.2002C92.0479 16.0801 92.0481 15.5196 91.8301 15.0918C91.6384 14.7156 91.3322 14.4095 90.9561 14.2178C90.5282 13.9998 89.9677 14 88.8477 14H85.0479V29H79.0479V10H88.4473ZM107.048 21.7998C107.048 22.9199 107.048 23.4804 107.266 23.9082C107.457 24.2844 107.763 24.5905 108.14 24.7822C108.567 25.0002 109.128 25 110.248 25H114.048V10H120.048V29H110.647C107.287 29 105.607 28.9997 104.323 28.3457C103.194 27.7704 102.276 26.8524 101.701 25.7236C101.047 24.4403 101.048 22.7601 101.048 19.4004V10H107.048V21.7998ZM129.048 10H134.548V14H129.048V21.7998C129.048 22.9199 129.048 23.4804 129.266 23.9082C129.457 24.2844 129.763 24.5905 130.14 24.7822C130.567 25.0002 131.128 25 132.248 25H135.048V29H132.647C129.287 29 127.607 28.9997 126.323 28.3457C125.194 27.7704 124.276 26.8524 123.701 25.7236C123.047 24.4403 123.048 22.7601 123.048 19.4004V4H129.048V10ZM44.0479 21C42.9433 21 42.0479 21.8954 42.0479 23C42.0479 24.1046 42.9433 25 44.0479 25H49.0479V21H44.0479Z" fill="#212124" />
+          </svg>
         </a>
-        <nav className="site-header__nav">
+        <nav className="nav">
           {links.map((l) => (
-            <a key={l} href={`#${l}`} className="site-header__link">{l}</a>
+            <a key={l} href={`#${l}`} className="link">{l}</a>
           ))}
         </nav>
-        <a href="#cta" className="site-header__cta">Обсудить проект</a>
+        <a href="#cta" className="btn btn--dark btn--sm">Обсудить проект</a>
       </Container>
     </header>
   );

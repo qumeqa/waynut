@@ -6,14 +6,16 @@ import "./Process.scss";
 export function Process() {
   return (
     <section className="process">
-      <Container className="process__inner">
+      <Container className="inner">
         <h2>Как мы работаем</h2>
-        <div className="process__grid">
+        <div className="grid">
           {steps.map((s) => (
-            <div key={s.n} className="process__card">
-              <div className="process__icon-box"><Check className="process__icon" /></div>
-              <h3>{s.t}</h3>
-              <p className="process__text">{s.d}</p>
+            <div key={s.n} className="card">
+              <div className="icon-box"><Check className="icon" /></div>
+              <div className="body">
+                <h3>{s.t}</h3>
+                <p className="text">{s.d}</p>
+              </div>
             </div>
           ))}
         </div>

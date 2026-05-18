@@ -4,37 +4,67 @@
 .services {
   @include section-pad;
 
-  &__block { @include dark-block; h2 { color: $white; } }
-  &__header { padding: $card-padding; }
-  &__accent { color: $primary; }
+  .block {
+    @include dark-block;
 
-  &__grid {
+    h2 {
+      color: $white;
+    }
+  }
+
+  .header {
+    padding: $padding-md;
+  }
+
+  .accent {
+    color: $primary;
+  }
+
+  .grid {
     display: grid;
     border-top: 2px solid $dark-stroke;
 
     @media (min-width: $bp-md) {
       grid-template-columns: repeat(2, 1fr);
-      & > .services__col:nth-child(odd) { border-right: 2px solid $dark-stroke; }
+
+      &>.col:nth-child(odd) {
+        border-right: 2px solid $dark-stroke;
+      }
     }
+
     @media (min-width: $bp-lg) {
       grid-template-columns: repeat(4, 1fr);
-      & > .services__col:nth-child(odd) { border-right: none; }
-      & > .services__col:not(:last-child) { border-right: 2px solid $dark-stroke; }
+
+      &>.col:nth-child(odd) {
+        border-right: none;
+      }
+
+      &>.col:not(:last-child) {
+        border-right: 2px solid $dark-stroke;
+      }
     }
   }
 
-  &__col {
+  .col {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 2.5rem;
     min-height: 380px;
-    padding: $card-padding;
+    padding: $padding-md;
   }
-  &__col-label { color: $text-on-dark; }
 
-  &__list { display: flex; flex-direction: column; gap: 0.625rem; }
-  &__item {
+  .col-label {
+    color: $text-on-dark;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .item {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.2;
