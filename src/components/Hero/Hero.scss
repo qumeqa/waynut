@@ -1,5 +1,17 @@
 @use "../../styles/variables" as *;
 
+@keyframes hero {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero {
   position: relative;
   isolation: isolate;
@@ -29,6 +41,8 @@
     justify-content: center;
     gap: 4rem;
     height: 100vh;
+    max-height: 1200px;
+    animation: hero 1.5s ease forwards;
 
     // @media (min-width: $bp-md) {
     //   padding-top: 7rem;

@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 import { Container } from "../Container/Container";
 import { steps } from "../../pages/Home/data";
 import "./Process.scss";
+import gr from '../../assets/images/gr.png';
 
 export function Process() {
   return (
@@ -19,6 +20,7 @@ export function Process() {
             </div>
           ))}
         </div>
+        <img src={gr} className="gr" alt="Градиент" />
       </Container>
     </section>
   );

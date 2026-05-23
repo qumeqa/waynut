@@ -17,8 +17,10 @@
   .list { display: flex; flex-direction: column; gap: 0.625rem; }
 
   .item {
-    background: $white;
-    padding: 1.75rem 2.5rem;
+    border-radius: $radius-md;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(2rem);
+    padding: $padding-sm $padding-md;
   }
 
   .q-btn {

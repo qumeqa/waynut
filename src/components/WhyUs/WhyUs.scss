@@ -2,18 +2,23 @@
 @use "../../styles/mixins" as *;
 
 .why {
+  position: relative;
   @include section-pad;
 
-  .inner { display: flex; flex-direction: column; gap: 2.5rem; padding-top: 11.25rem; }
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-top: 11.25rem;
+  }
 
   .grid {
     display: grid;
     gap: 1.25rem;
     grid-template-columns: 1fr;
+
     @media (min-width: $bp-lg) {
       grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: minmax(0, 1fr);
-      height: 705px;
     }
   }
 
@@ -21,7 +26,10 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    @media (min-width: $bp-lg) { height: 100%; }
+
+    @media (min-width: $bp-lg) {
+      height: 100%;
+    }
   }
 
   .card {
@@ -34,21 +42,33 @@
     &--big {
       justify-content: space-between;
       gap: 1.25rem;
-      @media (min-width: $bp-lg) { flex: 0 0 500px; }
+
+      @media (min-width: $bp-lg) {
+        flex: 0 0 500px;
+      }
     }
+
     &--small {
       gap: 1.25rem;
-      @media (min-width: $bp-lg) { flex: 0 0 185px; }
     }
+
     &--middle {
       justify-content: flex-end;
       gap: 1.25rem;
-      @media (min-width: $bp-lg) { height: 100%; }
+
+      @media (min-width: $bp-lg) {
+        height: 100%;
+      }
     }
+
     &--split {
       justify-content: space-between;
       gap: 2.5rem;
-      @media (min-width: $bp-lg) { flex: 1 1 0; min-height: 0; }
+
+      @media (min-width: $bp-lg) {
+        flex: 1 1 0;
+        min-height: 0;
+      }
     }
   }
 
@@ -60,7 +80,12 @@
     color: $dark;
   }
 
-  .body { display: flex; flex-direction: column; gap: 1.25rem; }
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
   .title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -68,14 +93,21 @@
     letter-spacing: -0.03em;
     color: $dark;
   }
-  .text { color: $text-muted; }
+
+  .text {
+    color: $text-muted;
+  }
 
   .avatars {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    & > * + * { margin-left: -0.75rem; }
+
+    &>*+* {
+      margin-left: -1rem;
+    }
   }
+
   .avatar {
     width: 4rem;
     height: 4rem;
@@ -85,23 +117,29 @@
     background: $bg;
   }
 
-  .middle-image-wrap {
+  .middle-image {
     position: absolute;
-    inset: -2px -2px auto -2px;
-    height: 503px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
     pointer-events: none;
+    z-index: -1;
   }
-  .middle-image { width: 100%; height: 100%; object-fit: contain; }
-  .middle-image-fade {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
-  }
+
   .middle-text {
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+  }
+
+  .gr {
+    position: absolute;
+    left: 0;
+    top: 60%;
+    transform: translateY(-40%) scaleX(-1);
+    z-index: -1;
   }
 }

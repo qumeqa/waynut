@@ -34,7 +34,6 @@ export function Services() {
                       .type('<span class="accent">дизайну</span>')
                       .pause(1500)
                       .delete();
-
                     return instance;
                   }}
                 />
@@ -46,7 +45,7 @@ export function Services() {
               <div key={s.title} className="col">
                 <p className="col-label">{s.title}</p>
                 <ul className="list">
-                  {s.items.map((it) => <li key={it} className="item">{it}</li>)}
+                  {s.items.map((it) => <h3 key={it} className="item">{it}</h3>)}
                 </ul>
               </div>
             ))}

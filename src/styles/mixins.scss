@@ -26,8 +26,8 @@
   position: relative;
   border-radius: $radius-md;
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
-  padding: $padding-md;
+  backdrop-filter: blur(2rem);
+  padding: $padding-sm $padding-md;
 
   &::before {
     content: '';

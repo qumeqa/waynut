@@ -8,7 +8,7 @@ $bp-lg: 1024px;
 // Цвета
 $bg:            #f0f0f0;                  // фон страницы
 $dark:          #25242a;                  // тёмный (текст, тёмные блоки)
-$dark-stroke:   #34353a;                  // разделители на тёмном
+$dark-stroke:   #3a3b41;                  // разделители на тёмном
 $primary:       #ff8f40;                  // акцент / оранжевый
 $white:         #ffffff;
 $text-muted:    rgba(33, 33, 36, 0.65);   // вторичный текст на светлом
@@ -16,8 +16,9 @@ $text-ghost: rgba(33, 33, 36, 0.30);
 $text-on-dark:  rgba(255, 255, 255, 0.65);// вторичный текст на тёмном
 
 // Отступы
-$padding-sm: 1.25rem;
-$padding-md: clamp(1.25rem, 0.9615rem + 1.2821vw, 2.5rem);;
+$padding-sm: 2.1875rem;
+// $padding-md: clamp(1.25rem, 0.9615rem + 1.2821vw, 2.5rem);
+$padding-md: 2.5rem;
 
 // Кнопки
 $btn-sm: 0.75rem 1.5rem;
@@ -26,4 +27,4 @@ $btn-md: 1.25rem 1.75rem;
 // Закругления
 $radius-sm: 10px;
 $radius-md: 20px;
-$radius-lg: clamp(1.25rem, 0.9615rem + 1.2821vw, 2.5rem);;
+$radius-lg: clamp(1.25rem, 0.9615rem + 1.2821vw, 2.5rem);

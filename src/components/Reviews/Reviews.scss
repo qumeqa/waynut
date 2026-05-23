@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: $padding-md;
+    padding: $padding-sm $padding-md;
   }
 
   .nav {
@@ -69,6 +69,7 @@
     flex-shrink: 0;
     min-height: 460px;
     padding: $padding-md;
+    padding-top: $padding-sm;
 
     &:not(:last-child) {
       border-right: 2px solid $dark-stroke;

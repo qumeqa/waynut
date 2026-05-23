@@ -1,7 +1,7 @@
 import { Container } from "../Container/Container";
 import "./Hero.scss";
 import bgVideo from "../../assets/videos/bg.mp4";
-import bgImage from "../../assets/videos/bg.mp4";
+import bgImage from "../../assets/images//hero/bg.webp";
 
 export function Hero() {
   return (

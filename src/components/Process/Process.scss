@@ -3,6 +3,7 @@
 
 .process {
   @include section-pad;
+  position: relative;
 
   .inner {
     display: flex;
@@ -53,5 +54,13 @@
 
   .text {
     color: $text-muted;
+  }
+
+  .gr {
+    position: absolute;
+    left: 0;
+    top: 25%;
+    transform: translateY(-75%) scaleX(-1);
+    z-index: -1;
   }
 }
