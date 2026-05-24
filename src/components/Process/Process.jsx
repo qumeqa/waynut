@@ -1,4 +1,3 @@
-import { Check } from "lucide-react";
 import { Container } from "../Container/Container";
 import { steps } from "../../pages/Home/data";
 import "./Process.scss";
@@ -12,7 +11,7 @@ export function Process() {
         <div className="grid">
           {steps.map((s) => (
             <div key={s.n} className="card">
-              <div className="icon-box"><Check className="icon" /></div>
+              <img src={s.icon} alt="" className="icon" />
               <div className="body">
                 <h3>{s.t}</h3>
                 <p className="text">{s.d}</p>

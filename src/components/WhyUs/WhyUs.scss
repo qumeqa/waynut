@@ -73,10 +73,10 @@
   }
 
   .big-num {
-    font-size: clamp(4rem, 8vw, 6.25rem);
+    font-size: clamp(5rem, 8vw, 7rem);
     font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: -0.08em;
+    line-height: 1;
+    letter-spacing: -0.06em;
     color: $dark;
   }
 
@@ -86,35 +86,14 @@
     gap: 1.25rem;
   }
 
-  .title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
-    color: $dark;
-  }
-
   .text {
     color: $text-muted;
   }
 
-  .avatars {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    &>*+* {
-      margin-left: -1rem;
-    }
-  }
-
-  .avatar {
-    width: 4rem;
+  .icons {
     height: 4rem;
-    border-radius: 9999px;
-    border: 4px solid $white;
-    object-fit: cover;
-    background: $bg;
+    width: max-content;
+    margin-left: auto;
   }
 
   .middle-image {

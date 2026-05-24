@@ -1,4 +1,5 @@
 import { Header } from "../../components/Header/Header";
+import { FloatingHeader } from "../../components/FloatingHeader/FloatingHeader";
 import { Hero } from "../../components/Hero/Hero";
 import { Pains } from "../../components/Pains/Pains";
 import { Services } from "../../components/Services/Services";
@@ -14,6 +15,7 @@ export function Home() {
   return (
     <>
       <Header />
+      <FloatingHeader />
       <main className="home">
         <Hero />
         <Pains />

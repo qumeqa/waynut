@@ -31,19 +31,9 @@
     gap: 3.5rem;
   }
 
-  .icon-box {
-    display: flex;
+  .icon {
     width: 3rem;
     height: 3rem;
-    align-items: center;
-    justify-content: center;
-    color: $dark;
-  }
-
-  .icon {
-    width: 2rem;
-    height: 2rem;
-    stroke-width: 1.5;
   }
 
   .body {

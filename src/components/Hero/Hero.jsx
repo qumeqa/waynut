@@ -3,7 +3,33 @@ import "./Hero.scss";
 import bgVideo from "../../assets/videos/bg.mp4";
 import bgImage from "../../assets/images//hero/bg.webp";
 
-export function Hero() {
+const defaultBadges = ["Сайт от 20 000 ₽", "От 7 дней"];
+
+const defaultTitle = (
+  <>
+    Сайты, чат-боты и&nbsp;продвижение,<br />
+    которые приносят клиентов
+  </>
+);
+
+const defaultLede = (
+  <>
+    Помогаем владельцам бизнеса выйти в&nbsp;онлайн и&nbsp;получать клиентов
+    <br className="br-md" /> без&nbsp;технических сложностей и&nbsp;лишних затрат
+  </>
+);
+
+const defaultActions = [
+  { label: "Бесплатная консультация", href: "#cta", variant: "primary" },
+  { label: "Рассчитать стоимость", href: "#services", variant: "light" },
+];
+
+export function Hero({
+  badges = defaultBadges,
+  title = defaultTitle,
+  lede = defaultLede,
+  actions = defaultActions,
+}) {
   return (
     <section className="hero">
       <div className="gr"></div>
@@ -15,22 +41,18 @@ export function Hero() {
       />
       <Container className="inner">
         <div className="badges">
-          <span className="badge">Сайт от 20 000 ₽</span>
-          <span className="badge">От 7 дней</span>
+          {badges.map((b) => (
+            <span key={b} className="badge">{b}</span>
+          ))}
         </div>
         <div className="hero-text">
-          <h1>
-            Сайты, чат-боты и&nbsp;продвижение,<br />
-            которые приносят клиентов
-          </h1>
-          <p className="lede">
-            Помогаем владельцам бизнеса выйти в&nbsp;онлайн и&nbsp;получать клиентов
-            <br className="br-md" /> без&nbsp;технических сложностей и&nbsp;лишних затрат
-          </p>
+          <h1>{title}</h1>
+          <p className="lede">{lede}</p>
         </div>
         <div className="actions">
-          <a href="#cta" className="btn btn--primary">Бесплатная консультация</a>
-          <a href="#services" className="btn btn--light">Рассчитать стоимость</a>
+          {actions.map((a) => (
+            <a key={a.label} href={a.href} className={`btn btn--${a.variant}`}>{a.label}</a>
+          ))}
         </div>
       </Container>
     </section>

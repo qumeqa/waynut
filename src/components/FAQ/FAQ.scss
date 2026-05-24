@@ -7,23 +7,35 @@
   .grid {
     display: grid;
     gap: 2.5rem;
+
     @media (min-width: $bp-lg) {
       grid-template-columns: repeat(2, 1fr);
       gap: 1.25rem;
-      h2 { position: sticky; top: 8rem; }
+
+      h2 {
+        position: sticky;
+        top: 8rem;
+      }
     }
   }
 
-  .list { display: flex; flex-direction: column; gap: 0.625rem; }
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
 
   .item {
     border-radius: $radius-md;
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(2rem);
     padding: $padding-sm $padding-md;
+    padding-right: $padding-sm;
+    cursor: pointer;
+    user-select: none;
   }
 
-  .q-btn {
+  .q-row {
     display: flex;
     width: 100%;
     align-items: center;
@@ -32,28 +44,47 @@
     text-align: left;
   }
 
-  .q {
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
-    color: $dark;
-  }
-
   .icon {
     flex-shrink: 0;
     color: $dark;
-    width: 1.5rem;
-    height: 1.5rem;
-    svg { width: 1.5rem; height: 1.5rem; }
+    width: 1.75rem;
+    height: 1.75rem;
+    transition: transform 0.3s ease;
+
+    svg {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    &.is-open {
+      transform: rotate(45deg);
+    }
   }
 
   .answer-wrap {
     display: grid;
     grid-template-rows: 0fr;
-    transition: all 0.3s;
-    &.is-open { grid-template-rows: 1fr; margin-top: 1.25rem; }
+    transition: grid-template-rows 0.3s ease;
+
+    &.is-open {
+      grid-template-rows: 1fr;
+
+      .answer-inner {
+        opacity: 1;
+        padding-top: 1.25rem;
+        transition: opacity 0.2s 0.1s, padding-top 0.3s ease;
+      }
+    }
   }
-  .answer-inner { overflow: hidden; }
-  .a { color: $text-muted; }
+
+  .answer-inner {
+    overflow: hidden;
+    opacity: 0;
+    padding-top: 0;
+    transition: opacity 0.15s, padding-top 0.3s ease;
+  }
+
+  .a {
+    color: $text-muted;
+  }
 }

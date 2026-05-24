@@ -3,6 +3,7 @@
 
 .reviews {
   @include section-pad;
+  padding-bottom: 0;
 
   .block {
     @include dark-block;
@@ -36,13 +37,8 @@
     color: $white;
     transition: background 0.2s;
 
-    &:hover:not(:disabled) {
+    &:hover {
       background: rgba(255, 255, 255, 0.05);
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      opacity: 0.3;
     }
   }
 
@@ -52,13 +48,16 @@
   }
 
   .viewport {
-    overflow: hidden;
     border-top: 2px solid $dark-stroke;
   }
 
-  .track {
-    display: flex;
-    transition: transform 0.5s ease-out;
+  // Убираем отступы Swiper, чтобы карточки занимали всю ширину
+  :global(.swiper) {
+    overflow: visible;
+  }
+
+  :global(.swiper-slide) {
+    height: auto;
   }
 
   .card {
@@ -66,14 +65,12 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 2.5rem;
-    flex-shrink: 0;
+    height: 100%;
     min-height: 460px;
     padding: $padding-md;
     padding-top: $padding-sm;
-
-    &:not(:last-child) {
-      border-right: 2px solid $dark-stroke;
-    }
+    border-right: 2px solid $dark-stroke;
+    box-sizing: border-box;
   }
 
   .text {

@@ -18,7 +18,7 @@ export function Header() {
             <a key={l} href={`#${l}`} className="link">{l}</a>
           ))}
         </nav>
-        <a href="#cta" className="btn btn--dark btn--sm">Обсудить проект</a>
+        <a href="#cta" className="btn btn--dark btn--sm"><div class="circle"></div>Обсудить проект</a>
       </Container>
     </header>
   );

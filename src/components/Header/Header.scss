@@ -13,6 +13,18 @@
   }
 }
 
+@keyframes blink {
+
+  0%,
+  100% {
+    background: greenyellow;
+  }
+
+  50% {
+    background: gray;
+  }
+}
+
 .site-header {
   position: absolute;
   width: 100%;
@@ -26,6 +38,14 @@
     align-items: center;
     justify-content: space-between;
   }
+
+    .circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--available);
+      animation: blink 1.8s ease infinite;
+    }
 
   .logo svg{
     height: 2rem;

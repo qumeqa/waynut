@@ -17,8 +17,10 @@ export function Services() {
                     cursor: false,
                     loop: true,
                     waitUntilVisible: true,
-                    speed: 60,
-                    deleteSpeed: 60,
+                    speed: 50,
+                    deleteSpeed: 50,
+                    startDelay: 0,
+                    loopDelay: 0,
                   }}
                   getBeforeInit={(instance) => {
                     instance
